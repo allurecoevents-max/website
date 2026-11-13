@@ -2,8 +2,8 @@
 title: Weddings
 order: 1
 cardText: Full planning, partial planning or on-the-day coordination for your perfect day.
-cardImage: /images/img-006.jpg
-cardImageAlt: Luxury wedding floral centrepiece
+cardImage: /images/img-035.jpg
+cardImageAlt: Candlelit outdoor wedding reception with white florals
 seoTitle: Wedding Planner London
 seoDescription: London wedding planner offering full planning, partial planning and on-the-day coordination across the UK. Book a free consultation with Allure & Co Events.
 hero:
