@@ -1,0 +1,25 @@
+---
+layout: base.njk
+permalink: /thank-you.html
+title: Thank you
+description: Thank you for contacting Allure & Co Events.
+noindex: true
+---
+<section class="section">
+  <div class="wrap narrow center">
+    <span class="eyebrow">Thank you</span>
+    <h1>We've received your message</h1>
+    <p class="lead" id="ty-text">Thank you for getting in touch. We'll reply within 24 hours to arrange your free consultation. Keep an eye on your inbox (and your spam folder, just in case).</p>
+    <p id="ty-checklist" hidden><a class="btn" href="{{ site.checklistPdf }}" download>Download your checklist</a></p>
+    <div class="btn-row" style="margin-top:2rem;justify-content:center">
+      <a class="btn btn--ghost" href="/">Back to home</a>
+      <a class="btn btn--ghost" href="{{ site.instagramUrl }}" target="_blank" rel="noopener">Follow on Instagram</a>
+    </div>
+  </div>
+</section>
+<script>
+  if (new URLSearchParams(location.search).has("checklist")) {
+    document.getElementById("ty-text").textContent = "Your wedding planning checklist is ready. Download it below, and when you're ready to talk planning, we're here.";
+    document.getElementById("ty-checklist").hidden = false;
+  }
+</script>

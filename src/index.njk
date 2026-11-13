@@ -1,0 +1,214 @@
+---
+layout: base.njk
+permalink: /index.html
+---
+{%- from "macros.njk" import hero, heading, gallery, reviews, faq -%}
+{{ hero(home.hero, false) }}
+
+<div class="trust">
+  <ul class="wrap">
+    {%- for t in home.trust %}<li>{{ t }}</li>{% endfor %}
+  </ul>
+</div>
+
+<section class="section">
+  <div class="wrap narrow center reveal">
+    <span class="eyebrow">{{ home.intro.eyebrow }}</span>
+    <h2>{{ heading(home.intro.heading, home.intro.headingItalic, true) }}</h2>
+    <p class="lead">{{ home.intro.text }}</p>
+  </div>
+</section>
+
+<section class="section section--cream" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">{{ home.services.eyebrow }}</span>
+      <h2>{{ home.services.heading }}</h2>
+    </div>
+    <div class="cards">
+      {%- for s in collections.servicePages %}
+      <a class="card reveal" href="{{ s.url }}">
+        <div class="card__img">{% image s.data.cardImage, s.data.cardImageAlt, "(max-width: 600px) 100vw, (max-width: 960px) 50vw, 380px" %}</div>
+        <div class="card__body">
+          <h3>{{ s.data.title }}</h3>
+          <p>{{ s.data.cardText }}</p>
+          <span class="card__more">Explore {{ s.data.title | lower }}</span>
+        </div>
+      </a>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="wrap split">
+    <div class="split__media reveal">
+      {% image home.founder.image, home.founder.imageAlt, "(max-width: 860px) 100vw, 560px" %}
+      <div class="frame" aria-hidden="true"></div>
+    </div>
+    <div class="reveal">
+      <span class="eyebrow">{{ home.founder.eyebrow }}</span>
+      <h2>{{ home.founder.heading }}</h2>
+      {{ home.founder.text | paras | safe }}
+      {% if home.founder.signature %}<p class="signature">{{ home.founder.signature }}</p>{% endif %}
+      <div class="btn-row" style="margin-top:1.6rem">
+        <a class="btn" href="#contact">{{ home.founder.button }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--ink">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">{{ home.process.eyebrow }}</span>
+      <h2>{{ home.process.heading }}</h2>
+      <p class="lead">{{ home.process.intro }}</p>
+    </div>
+    <div class="steps">
+      {%- for step in home.process.steps %}
+      <div class="step reveal"><span class="step__num">{{ "0" if loop.index < 10 }}{{ loop.index }}</span><h3>{{ step.title }}</h3><p>{{ step.text }}</p></div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="packages">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">{{ home.packages.eyebrow }}</span>
+      <h2>{{ home.packages.heading }}</h2>
+      <p class="lead">{{ home.packages.intro }}</p>
+    </div>
+    <div class="packages">
+      {%- for p in home.packages.items %}
+      <article class="package{% if p.featured %} package--featured{% endif %} reveal">
+        {% if p.featured %}<span class="package__badge">Most popular</span>{% endif %}
+        <span class="package__tier">{{ p.tier }}</span>
+        <h3>{{ p.name }}</h3>
+        <p class="package__tag">{{ p.tagline }}</p>
+        <ul>
+          {%- for f in p.features %}<li>{{ f }}</li>{% endfor %}
+        </ul>
+        <a class="btn{% if not p.featured %} btn--ghost{% endif %}" href="#contact">{{ p.price or "Enquire for pricing" }}</a>
+      </article>
+      {%- endfor %}
+    </div>
+    {% if home.packages.addons.length %}
+    <div class="addons reveal">
+      <span class="eyebrow">{{ home.packages.addonsEyebrow }}</span>
+      <p class="lead narrow">{{ home.packages.addonsIntro }}</p>
+      <ul>
+        {%- for a in home.packages.addons %}<li>{{ a }}</li>{% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+{%- set homeReviews = home.reviews -%}
+{%- if site.googleReviewsUrl -%}
+  {%- set homeReviews = { eyebrow: home.reviews.eyebrow, heading: home.reviews.heading, items: home.reviews.items, link: site.googleReviewsUrl, linkText: "Read our Google reviews" } -%}
+{%- endif -%}
+{{ reviews(homeReviews) }}
+
+<section class="section" id="gallery">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">{{ home.gallery.eyebrow }}</span>
+      <h2>{{ home.gallery.heading }}</h2>
+    </div>
+    {{ gallery(home.gallery.images) }}
+  </div>
+</section>
+
+<section class="section section--cream insta" id="instagram">
+  <div class="wrap narrow reveal">
+    <span class="eyebrow">{{ home.instagram.eyebrow }}</span>
+    <p class="insta__handle">{{ site.instagramHandle }}</p>
+    <p class="lead">{{ home.instagram.text }}</p>
+    <div class="btn-row" style="justify-content:center">
+      <a class="btn" href="{{ site.instagramUrl }}" target="_blank" rel="noopener">Follow on Instagram</a>
+      <a class="btn btn--ghost" href="{{ site.tiktokUrl }}" target="_blank" rel="noopener">Follow on TikTok</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--ink">
+  <div class="wrap magnet">
+    <div class="reveal">
+      <span class="eyebrow">{{ home.checklist.eyebrow }}</span>
+      <h2>{{ home.checklist.heading }}</h2>
+      <p class="lead">{{ home.checklist.text }}</p>
+    </div>
+    <form class="inline-form reveal" action="https://formspree.io/f/{{ site.formspreeId }}" method="POST" data-ajax data-success="/thank-you.html?checklist=1">
+      <input type="hidden" name="_subject" value="Checklist download request">
+      <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label class="hp" for="cl-name">First name</label>
+      <input id="cl-name" type="text" name="firstName" placeholder="First name" required autocomplete="given-name">
+      <label class="hp" for="cl-email">Email</label>
+      <input id="cl-email" type="email" name="email" placeholder="Email address" required autocomplete="email">
+      <button class="btn btn--light" type="submit">{{ home.checklist.button }}</button>
+      <p class="form-status" role="status"></p>
+    </form>
+  </div>
+</section>
+
+{{ faq(home.faq, false, "faq") }}
+
+<section class="section section--cream" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <span class="eyebrow">{{ home.contact.eyebrow }}</span>
+      <h2>{{ home.contact.heading }}</h2>
+      <p class="lead">{{ home.contact.text }}</p>
+      <ul class="contact-list">
+        <li><span>Email</span><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+        <li><span>Instagram</span><a href="{{ site.instagramUrl }}" target="_blank" rel="noopener">{{ site.instagramHandle }}</a></li>
+        <li><span>TikTok</span><a href="{{ site.tiktokUrl }}" target="_blank" rel="noopener">{{ site.tiktokHandle }}</a></li>
+        <li><span>Based in</span>London, planning across the UK</li>
+      </ul>
+    </div>
+    <form class="form reveal" action="https://formspree.io/f/{{ site.formspreeId }}" method="POST" data-ajax data-success="/thank-you.html">
+      <input type="hidden" name="_subject" value="New consultation enquiry">
+      <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="field"><label for="f-first">First name *</label><input id="f-first" name="firstName" required autocomplete="given-name"></div>
+      <div class="field"><label for="f-last">Last name</label><input id="f-last" name="lastName" autocomplete="family-name"></div>
+      <div class="field"><label for="f-email">Email *</label><input id="f-email" type="email" name="email" required autocomplete="email"></div>
+      <div class="field"><label for="f-phone">Phone</label><input id="f-phone" type="tel" name="phone" autocomplete="tel"></div>
+      <div class="field">
+        <label for="f-type">Event type *</label>
+        <select id="f-type" name="eventType" required>
+          <option value="">Please choose</option>
+          <option>Wedding</option><option>Proposal</option><option>Engagement party</option><option>Bridal shower</option>
+          <option>Baby shower</option><option>Christening</option><option>Graduation</option><option>Birthday</option><option>Other</option>
+        </select>
+      </div>
+      <div class="field"><label for="f-date">Event date</label><input id="f-date" type="date" name="eventDate"></div>
+      <div class="field">
+        <label for="f-guests">Guest count</label>
+        <select id="f-guests" name="guestCount">
+          <option value="">Please choose</option>
+          <option>Just us two</option><option>Under 30</option><option>30–80</option><option>80–150</option><option>150+</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-budget">Budget range</label>
+        <select id="f-budget" name="budgetRange">
+          <option value="">Please choose</option>
+          <option>Under £2,000</option><option>£2,000–£5,000</option><option>£5,000–£15,000</option><option>£15,000–£30,000</option><option>£30,000+</option><option>Not sure yet</option>
+        </select>
+      </div>
+      <div class="field full"><label for="f-vision">Tell us about your vision</label><textarea id="f-vision" name="vision" placeholder="Venue ideas, colours, the feeling you want..."></textarea></div>
+      <p class="form-note full">By sending this form you agree to us contacting you about your enquiry. See our <a href="/privacy.html">privacy policy</a>.</p>
+      <div class="full"><button class="btn" type="submit">Send my enquiry</button></div>
+      <p class="form-status" role="status"></p>
+    </form>
+  </div>
+  <div class="wrap calendly-wrap" data-calendly hidden>
+    <div class="section-head" style="margin-bottom:28px">
+      <span class="eyebrow">Prefer to pick a time?</span>
+      <h2>{{ home.contact.calendlyHeading }}</h2>
+    </div>
+  </div>
+</section>

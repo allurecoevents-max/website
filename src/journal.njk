@@ -1,0 +1,28 @@
+---
+layout: base.njk
+permalink: /journal.html
+title: "Journal: Event Planning Advice"
+description: Planning guides and ideas for weddings, proposals and celebrations from Allure & Co Events, London.
+---
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Journal</span>
+      <h1>Planning advice &amp; ideas</h1>
+      <p class="lead">Practical guides for weddings, proposals and celebrations, from our planning desk in London.</p>
+    </div>
+    <div class="cards">
+      {%- for post in collections.articles %}
+      <a class="card reveal" href="{{ post.url }}">
+        <div class="card__img">{% image post.data.image, post.data.imageAlt, "(max-width: 600px) 100vw, (max-width: 960px) 50vw, 380px" %}</div>
+        <div class="card__body">
+          <span class="article-meta">{{ post.data.category }}</span>
+          <h3>{{ post.data.title }}</h3>
+          <p>{{ post.data.cardText or post.data.description }}</p>
+          <span class="card__more">Read the guide</span>
+        </div>
+      </a>
+      {%- endfor %}
+    </div>
+  </div>
+</section>

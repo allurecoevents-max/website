@@ -1,0 +1,42 @@
+---
+layout: base.njk
+---
+{%- from "macros.njk" import hero as heroSection, split, included as includedSection, gallery as gallerySection, reviews as reviewsSection, faq as faqSection, cta as ctaSection -%}
+{{ heroSection(hero) }}
+
+{{ split(intro) }}
+
+{% if types and types.length %}
+<section class="section section--cream">
+  <div class="wrap">
+    {% if typesHeading %}
+    <div class="section-head reveal">
+      <span class="eyebrow">{{ typesEyebrow or "What we celebrate" }}</span>
+      <h2>{{ typesHeading }}</h2>
+    </div>
+    {% endif %}
+    <div class="cards">
+      {%- for t in types %}
+      <div class="card reveal">
+        <div class="card__img">{% image t.image, t.imageAlt, "(max-width: 600px) 100vw, (max-width: 960px) 50vw, 380px" %}</div>
+        <div class="card__body"><h3>{{ t.title }}</h3><p>{{ t.text }}</p></div>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{{ includedSection(included, not (types and types.length)) }}
+
+{% if gallery and gallery.length %}
+<section class="section">
+  <div class="wrap">{{ gallerySection(gallery) }}</div>
+</section>
+{% endif %}
+
+{{ reviewsSection(reviews) }}
+
+{{ faqSection(faq) }}
+
+{{ ctaSection(cta) }}

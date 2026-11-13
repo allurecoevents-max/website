@@ -1,0 +1,33 @@
+---
+layout: base.njk
+permalink: /404.html
+title: Page not found
+description: Sorry, we couldn't find that page.
+noindex: true
+eleventyExcludeFromCollections: true
+---
+<section class="section">
+  <div class="wrap narrow center">
+    <span class="eyebrow">Page not found</span>
+    <h1>This page has <em class="script">wandered off</em></h1>
+    <p class="lead">The link may be old or mistyped. Here's where you might want to go instead.</p>
+    <div class="btn-row" style="justify-content:center;margin:2rem 0 3rem">
+      <a class="btn" href="/">Back to home</a>
+      <a class="btn btn--ghost" href="/#contact">Book a free consultation</a>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="cards">
+      {%- for s in collections.servicePages %}
+      <a class="card" href="{{ s.url }}">
+        <div class="card__img">{% image s.data.cardImage, s.data.cardImageAlt, "(max-width: 600px) 100vw, (max-width: 960px) 50vw, 380px" %}</div>
+        <div class="card__body">
+          <h3>{{ s.data.title }}</h3>
+          <p>{{ s.data.cardText }}</p>
+          <span class="card__more">Explore {{ s.data.title | lower }}</span>
+        </div>
+      </a>
+      {%- endfor %}
+    </div>
+  </div>
+</section>

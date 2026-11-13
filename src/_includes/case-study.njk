@@ -1,0 +1,41 @@
+---
+layout: base.njk
+---
+{%- from "macros.njk" import gallery as gallerySection -%}
+<article class="section">
+  <div class="wrap">
+    <header class="article-head">
+      <span class="eyebrow">Portfolio · {{ eventType }}{% if area %} · {{ area }}{% endif %}</span>
+      <h1>{{ title }}</h1>
+      <p class="article-meta">{{ date | niceDate }}{% if guests %} · {{ guests }}{% endif %}{% if venue %} · {{ venue }}{% endif %}</p>
+    </header>
+    {% if coverImage %}{% image coverImage, coverImageAlt, "(max-width: 1000px) 100vw, 1000px", "article-cover", false %}{% endif %}
+    <div class="prose">
+      {% if brief %}<h2>The brief</h2>{{ brief | paras | safe }}{% endif %}
+      {% if whatWeDid and whatWeDid.length %}
+      <h2>What we did</h2>
+      <ul>{% for item in whatWeDid %}<li>{{ item }}</li>{% endfor %}</ul>
+      {% endif %}
+      {% if details %}<h2>The details</h2>{{ details | paras | safe }}{% endif %}
+    </div>
+
+    {% if gallery and gallery.length %}<div style="margin:48px 0">{{ gallerySection(gallery) }}</div>{% endif %}
+
+    <div class="prose">
+      {% if review and review.quote %}
+      <figure class="quote" style="background:var(--cream)">
+        <div class="quote__stars" aria-label="5 stars">★★★★★</div>
+        <blockquote>"{{ review.quote }}"</blockquote>
+        <figcaption><strong>{{ review.name }}</strong>{{ eventType }}{% if area %} · {{ area }}{% endif %}</figcaption>
+      </figure>
+      {% endif %}
+      {% if suppliers %}<h2>Suppliers</h2>{{ suppliers | paras | safe }}{% endif %}
+
+      <div class="article-cta">
+        <span class="eyebrow">Planning something similar?</span>
+        <h2>Let's create your story</h2>
+        <a class="btn" href="/#contact">Book a free consultation</a>
+      </div>
+    </div>
+  </div>
+</article>

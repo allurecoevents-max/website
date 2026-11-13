@@ -1,0 +1,144 @@
+{# Reusable page sections #}
+
+{% macro heading(text, italic, script=false) -%}
+{{ text }}{% if italic %} <em{% if script %} class="script"{% endif %}>{{ italic }}</em>{% endif %}
+{%- endmacro %}
+
+{% macro hero(h, page=true) %}
+<section class="hero{% if page %} hero--page{% endif %}">
+  {% image h.image, h.imageAlt, "100vw", "hero__img", false %}
+  <div class="hero__content">
+    {% if h.eyebrow %}<span class="eyebrow">{{ h.eyebrow }}</span>{% endif %}
+    <h1>{{ heading(h.heading, h.headingItalic) }}</h1>
+    {% if h.text %}<p>{{ h.text }}</p>{% endif %}
+    <div class="btn-row">
+      <a class="btn btn--light" href="/#contact">{{ h.button or "Book a free consultation" }}</a>
+      {% if h.secondButton %}<a class="btn btn--outline-light" href="{{ h.secondButtonLink }}">{{ h.secondButton }}</a>{% endif %}
+    </div>
+  </div>
+</section>
+{% endmacro %}
+
+{% macro split(s, reverse=false) %}
+{% if not s.image %}
+<section class="section">
+  <div class="wrap narrow center reveal">
+    {% if s.eyebrow %}<span class="eyebrow">{{ s.eyebrow }}</span>{% endif %}
+    <h2>{{ heading(s.heading, s.headingItalic, true) }}</h2>
+    <div class="lead">{{ s.text | paras | safe }}</div>
+    {{ caller() if caller }}
+  </div>
+</section>
+{% else %}
+<section class="section">
+  <div class="wrap split">
+    {% if s.image and not reverse %}
+    <div class="split__media reveal">
+      {% image s.image, s.imageAlt, "(max-width: 860px) 100vw, 560px" %}
+      <div class="frame" aria-hidden="true"></div>
+    </div>
+    {% endif %}
+    <div class="reveal">
+      {% if s.eyebrow %}<span class="eyebrow">{{ s.eyebrow }}</span>{% endif %}
+      <h2>{{ heading(s.heading, s.headingItalic, true) }}</h2>
+      {{ s.text | paras | safe }}
+      {{ caller() if caller }}
+    </div>
+    {% if s.image and reverse %}
+    <div class="split__media reveal">
+      {% image s.image, s.imageAlt, "(max-width: 860px) 100vw, 560px" %}
+      <div class="frame" aria-hidden="true"></div>
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endif %}
+{% endmacro %}
+
+{% macro included(inc, cream=true) %}
+{% if inc and inc.items and inc.items.length %}
+<section class="section{% if cream %} section--cream{% endif %}">
+  <div class="wrap">
+    <div class="section-head reveal">
+      {% if inc.eyebrow %}<span class="eyebrow">{{ inc.eyebrow }}</span>{% endif %}
+      <h2>{{ inc.heading }}</h2>
+      {% if inc.intro %}<p class="lead">{{ inc.intro }}</p>{% endif %}
+    </div>
+    <ul class="included reveal">
+      {% for item in inc.items %}<li>{{ item }}</li>{% endfor %}
+    </ul>
+    {% if inc.button %}<p class="center reveal" style="margin-top:44px"><a class="btn" href="{{ inc.buttonLink or '/#packages' }}">{{ inc.button }}</a></p>{% endif %}
+  </div>
+</section>
+{% endif %}
+{% endmacro %}
+
+{% macro gallery(images) %}
+{% if images and images.length %}
+<div class="gallery reveal">
+  {% for g in images %}
+  <figure{% if g.size and g.size != "normal" %} class="{{ g.size }}"{% endif %}>{% image g.image, g.alt, "(max-width: 860px) 50vw, 600px" %}</figure>
+  {% endfor %}
+</div>
+{% endif %}
+{% endmacro %}
+
+{% macro reviews(r, cream=true) %}
+{% if r and r.items and r.items.length %}
+<section class="section{% if cream %} section--cream{% endif %}">
+  <div class="wrap">
+    {% if r.heading %}
+    <div class="section-head reveal">
+      <span class="eyebrow">{{ r.eyebrow or "Kind words" }}</span>
+      <h2>{{ r.heading }}</h2>
+    </div>
+    {% endif %}
+    <div class="quotes"{% if r.items.length == 1 %} style="grid-template-columns:1fr;max-width:720px;margin-inline:auto"{% endif %}>
+      {% for q in r.items %}
+      <figure class="quote reveal">
+        <div class="quote__stars" aria-label="5 stars">★★★★★</div>
+        <blockquote>"{{ q.quote }}"</blockquote>
+        <figcaption><strong>{{ q.name }}</strong>{{ q.event }}</figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+    {% if r.link %}<p class="center reveal" style="margin-top:44px"><a class="text-link" href="{{ r.link }}" target="_blank" rel="noopener">{{ r.linkText or "Read more reviews" }}</a></p>{% endif %}
+  </div>
+</section>
+{% endif %}
+{% endmacro %}
+
+{% macro faq(f, cream=false, id="") %}
+{% if f and f.items and f.items.length %}
+<section class="section{% if cream %} section--cream{% endif %}"{% if id %} id="{{ id }}"{% endif %}>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">{{ f.eyebrow or "Good to know" }}</span>
+      <h2>{{ f.heading }}</h2>
+    </div>
+    <div class="faq reveal">
+      {% for item in f.items %}
+      <details>
+        <summary>{{ item.question }}</summary>
+        {{ item.answer | paras | safe }}
+      </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+{% endmacro %}
+
+{% macro cta(c) %}
+{% if c and c.heading %}
+<section class="section cta-band">
+  {% if c.image %}{% image c.image, "", "100vw" %}{% endif %}
+  <div class="wrap narrow reveal">
+    <span class="eyebrow">{{ c.eyebrow or "Free, no-obligation consultation" }}</span>
+    <h2>{{ c.heading }}</h2>
+    {% if c.text %}<p>{{ c.text }}</p>{% endif %}
+    <a class="btn btn--light" href="/#contact">{{ c.button or "Book a free consultation" }}</a>
+  </div>
+</section>
+{% endif %}
+{% endmacro %}

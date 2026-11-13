@@ -1,0 +1,21 @@
+---
+layout: base.njk
+---
+{%- from "macros.njk" import hero as heroSection, split, included as includedSection, reviews as reviewsSection, faq as faqSection, cta as ctaSection -%}
+{{ heroSection(hero) }}
+
+{% call split(intro, true) %}
+  {% if towns and towns.length %}
+  <ul class="towns">
+    {%- for t in towns %}<li>{{ t }}</li>{% endfor %}
+  </ul>
+  {% endif %}
+{% endcall %}
+
+{{ includedSection(included) }}
+
+{{ reviewsSection(reviews, false) }}
+
+{{ faqSection(faq, true) }}
+
+{{ ctaSection(cta) }}

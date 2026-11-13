@@ -1,0 +1,138 @@
+{
+  "seoTitle": "Allure & Co Events | Luxury Wedding & Event Planner in London",
+  "seoDescription": "Allure & Co Events is a London wedding and event planner. Weddings, proposals, baby showers, christenings and milestone celebrations across the UK. Book a free consultation.",
+  "hero": {
+    "eyebrow": "London wedding & event planner",
+    "heading": "Turning your vision",
+    "headingItalic": "into reality",
+    "text": "Weddings, proposals and life's biggest celebrations, planned down to the last detail so you can be fully present on the day.",
+    "image": "/images/img-010.jpg",
+    "imageAlt": "Wedding reception styled with white florals and candlelight",
+    "button": "Book a free consultation",
+    "secondButton": "View packages",
+    "secondButtonLink": "#packages"
+  },
+  "trust": [
+    "Free consultation",
+    "Reply within 24 hours",
+    "Flexible payment plans",
+    "London & across the UK"
+  ],
+  "intro": {
+    "eyebrow": "Our story",
+    "heading": "An eye for the details",
+    "headingItalic": "others miss",
+    "text": "Allure & Co is a London event planning studio for weddings, intimate gatherings and milestones worth marking. We design every occasion with creativity, care and a quiet touch of magic, and we take the stress off your plate so the day feels effortless from your side of it."
+  },
+  "services": {
+    "eyebrow": "What we plan",
+    "heading": "Events we love to create"
+  },
+  "founder": {
+    "eyebrow": "Meet the founder",
+    "heading": "Hello, I'm Asmeret",
+    "image": "/images/img-004.jpg",
+    "imageAlt": "Planning mood board with fabric swatches and stationery",
+    "text": "My love for event planning was born from a deeply personal moment. After planning my own events and wedding, I realised something unexpected: I loved the planning even more than the day itself. That feeling told me everything I needed to know.\n\nNow I bring that same passion and obsessive attention to detail to every client. When you work with Allure & Co, you work with me personally, from our first call to your final dance. Based in London, I plan events across the UK and beyond, always with one goal: that you get to enjoy every single moment.",
+    "signature": "Asmeret",
+    "button": "Book a call with me"
+  },
+  "process": {
+    "eyebrow": "The process",
+    "heading": "How it works",
+    "intro": "From your first message to your final dance, here's exactly what to expect.",
+    "steps": [
+      { "title": "Enquire", "text": "Fill in the form or message us on WhatsApp. We reply within 24 hours." },
+      { "title": "Free consultation", "text": "We talk through your vision, ideas, budget and everything that matters to you." },
+      { "title": "We plan", "text": "We handle every detail: venues, suppliers, timelines, styling and logistics." },
+      { "title": "You enjoy", "text": "On the day you relax and soak it all in. We take care of everything else." }
+    ]
+  },
+  "packages": {
+    "eyebrow": "Packages",
+    "heading": "Choose your planning journey",
+    "intro": "Every event is unique, so every package is tailored. All enquiries start with a free consultation to find the right fit, and flexible payment plans are available.",
+    "items": [
+      {
+        "tier": "Package one",
+        "name": "Final Touch",
+        "tagline": "You plan it, we bring it to life",
+        "price": "Enquire for pricing",
+        "featured": false,
+        "features": ["On-the-day coordination", "Timeline creation", "Venue walkthrough", "Setup supervision", "Point of contact for guests and suppliers"]
+      },
+      {
+        "tier": "Package two",
+        "name": "Signature",
+        "tagline": "Guidance through every step",
+        "price": "Enquire for pricing",
+        "featured": true,
+        "features": ["Everything in Final Touch", "Budget guidance", "Supplier recommendations and trusted partners", "Timeline management throughout planning", "Regular check-ins"]
+      },
+      {
+        "tier": "Package three",
+        "name": "Luxe",
+        "tagline": "From first vision to final dance",
+        "price": "Enquire for pricing",
+        "featured": false,
+        "features": ["Everything in Signature", "Venue and supplier sourcing", "Unlimited planning meetings", "Full event design and coordination", "Full logistics management"]
+      }
+    ],
+    "addonsEyebrow": "Add-ons & mini planning",
+    "addonsIntro": "Need something smaller? We also offer custom mini-planning and individual services.",
+    "addons": ["Event styling & design", "Invitation design", "Welcome signs & stationery", "Content creation on the day", "DIY setup assistance", "Event website assistance"]
+  },
+  "reviews": {
+    "eyebrow": "Kind words",
+    "heading": "What our clients say",
+    "link": "https://www.instagram.com/allurecoevents",
+    "linkText": "See our work on Instagram",
+    "items": [
+      { "name": "Priya & James", "event": "Wedding · London", "quote": "I was completely overwhelmed planning our wedding, and from our first consultation I felt at ease. On the day I didn't have to think about a thing. I just got to enjoy every moment." },
+      { "name": "Marcus T.", "event": "Proposal · Surrey", "quote": "She planned my surprise proposal and took my idea to a completely different level. My partner cried happy tears all evening. Worth every penny." },
+      { "name": "Sophie & Ryan", "event": "Wedding · London", "quote": "She worked within our budget and the result looked like something out of a magazine. I was blown away by what she achieved." }
+    ]
+  },
+  "gallery": {
+    "eyebrow": "Portfolio",
+    "heading": "Moments we've styled",
+    "images": [
+      { "image": "/images/img-035.jpg", "alt": "Candlelit outdoor wedding reception", "size": "tall" },
+      { "image": "/images/img-024.jpg", "alt": "Grand ballroom reception", "size": "wide" },
+      { "image": "/images/img-006.jpg", "alt": "Luxury floral centrepiece", "size": "normal" },
+      { "image": "/images/img-019.jpg", "alt": "Graduation celebration", "size": "normal" },
+      { "image": "/images/img-008.webp", "alt": "Glass greenhouse venue with green velvet chairs", "size": "tall" },
+      { "image": "/images/img-023.jpg", "alt": "Greenhouse styled dinner", "size": "normal" },
+      { "image": "/images/img-036.jpg", "alt": "Ballroom welcome backdrop with burgundy drapery", "size": "wide" },
+      { "image": "/images/img-009.jpg", "alt": "Watercolour tablescape with illustrated place cards", "size": "normal" },
+      { "image": "/images/img-007.jpg", "alt": "Luxury table setting", "size": "normal" }
+    ]
+  },
+  "instagram": {
+    "eyebrow": "Follow along",
+    "text": "Behind-the-scenes setups, planning tips and the little details, on Instagram and TikTok."
+  },
+  "checklist": {
+    "eyebrow": "Free download",
+    "heading": "The ultimate wedding planning checklist",
+    "text": "Every task, month by month, from 12+ months out to the final week, so nothing falls through the cracks.",
+    "button": "Send it to me"
+  },
+  "faq": {
+    "eyebrow": "Good to know",
+    "heading": "Frequently asked questions",
+    "items": [
+      { "question": "How far in advance should I book?", "answer": "For weddings, we recommend getting in touch 6 to 12 months ahead. For smaller celebrations like birthdays or baby showers, a few months is usually plenty. We always try our best to fit in last-minute enquiries, so get in touch whatever your timeline." },
+      { "question": "Do you travel outside of London?", "answer": "Yes. We're based in London and happily plan events across the UK and beyond. Travel outside London may carry an additional fee depending on location, which we always discuss openly during your consultation." },
+      { "question": "Do you offer payment plans?", "answer": "Yes. Events are a big investment, so we offer flexible payment plans tailored to your budget. We'll go through the options in your free consultation." },
+      { "question": "What happens in the free consultation?", "answer": "It's a relaxed, no-obligation conversation where we get to know you and your vision, talk through your budget and timeline, and recommend the package that fits best." },
+      { "question": "Can you work with my existing suppliers?", "answer": "Absolutely. Our packages are a starting point. We'll happily coordinate with suppliers you've already booked, or recommend trusted partners where you need them." }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Book a free consultation",
+    "heading": "Let's start planning",
+    "text": "Tell us a little about your event and we'll get back to you within 24 hours to arrange your free, no-obligation consultation.",
+    "calendlyHeading": "Book your free consultation call"
+  }
+}

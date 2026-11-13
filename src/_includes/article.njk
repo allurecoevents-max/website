@@ -1,0 +1,27 @@
+---
+layout: base.njk
+---
+<article class="section">
+  <div class="wrap">
+    <header class="article-head">
+      <span class="eyebrow">Journal · {{ category }}</span>
+      <h1>{{ title }}</h1>
+      <p class="article-meta">{{ subtitle }}{% if readTime %} · {{ readTime }}{% endif %}</p>
+    </header>
+    {% if image %}{% image image, imageAlt, "(max-width: 1000px) 100vw, 1000px", "article-cover", false %}{% endif %}
+    <div class="prose">
+      {% if intro %}<p class="lead">{{ intro }}</p>{% endif %}
+      {{ content | safe }}
+
+      <div class="article-cta">
+        <span class="eyebrow">{{ ctaEyebrow or "Free, no-obligation consultation" }}</span>
+        <h2>{{ ctaHeading or "Let's start planning" }}</h2>
+        {% if ctaText %}<p>{{ ctaText }}</p>{% endif %}
+        <div class="btn-row" style="justify-content:center">
+          <a class="btn" href="/#contact">{{ ctaButton or "Book a free consultation" }}</a>
+          {% if ctaLink %}<a class="btn btn--ghost" href="{{ ctaLink }}">{{ ctaLinkText }}</a>{% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
