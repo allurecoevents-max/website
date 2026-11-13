@@ -5,18 +5,28 @@
 {%- endmacro %}
 
 {% macro hero(h, page=true) %}
-<section class="hero{% if page %} hero--page{% endif %}">
-  {% image h.image, h.imageAlt, "100vw", "hero__img", false %}
-  <div class="hero__content">
-    {% if h.eyebrow %}<span class="eyebrow">{{ h.eyebrow }}</span>{% endif %}
+<section class="masthead{% if page %} masthead--page{% endif %}">
+  <div class="masthead__text">
+    <div class="masthead__issue"><span>{{ h.eyebrow or "Allure & Co Events" }}</span><span>Issue No. 01</span></div>
     <h1>{{ heading(h.heading, h.headingItalic) }}</h1>
     {% if h.text %}<p>{{ h.text }}</p>{% endif %}
     <div class="btn-row">
-      <a class="btn btn--light" href="/#contact">{{ h.button or "Book a free consultation" }}</a>
-      {% if h.secondButton %}<a class="btn btn--outline-light" href="{{ h.secondButtonLink }}">{{ h.secondButton }}</a>{% endif %}
+      <a class="btn" href="/#contact">{{ h.button or "Book a free consultation" }}</a>
+      {% if h.secondButton %}<a class="text-link" href="{{ h.secondButtonLink }}">{{ h.secondButton }}</a>{% endif %}
     </div>
   </div>
+  <figure class="masthead__media">
+    {% image h.image, h.imageAlt, "(max-width: 860px) 100vw, 55vw", "", false %}
+  </figure>
 </section>
+{% endmacro %}
+
+{% macro marquee(items) %}
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    {%- for round in [1, 2] %}{% for item in items %}<span>{{ item }}</span>{% endfor %}{% endfor %}
+  </div>
+</div>
 {% endmacro %}
 
 {% macro split(s, reverse=false) %}

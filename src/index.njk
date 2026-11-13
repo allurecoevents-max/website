@@ -2,8 +2,10 @@
 layout: base.njk
 permalink: /index.html
 ---
-{%- from "macros.njk" import hero, heading, gallery, reviews, faq -%}
+{%- from "macros.njk" import hero, heading, gallery, reviews, faq, marquee -%}
 {{ hero(home.hero, false) }}
+
+{{ marquee(["Weddings", "Proposals", "Engagements", "Bridal showers", "Baby showers", "Christenings", "Graduations", "Milestone birthdays"]) }}
 
 <div class="trust">
   <ul class="wrap">
@@ -12,10 +14,12 @@ permalink: /index.html
 </div>
 
 <section class="section">
-  <div class="wrap narrow center reveal">
-    <span class="eyebrow">{{ home.intro.eyebrow }}</span>
-    <h2>{{ heading(home.intro.heading, home.intro.headingItalic, true) }}</h2>
-    <p class="lead">{{ home.intro.text }}</p>
+  <div class="wrap intro-editorial reveal">
+    <div>
+      <span class="eyebrow">{{ home.intro.eyebrow }}</span>
+      <h2>{{ heading(home.intro.heading, home.intro.headingItalic, true) }}</h2>
+    </div>
+    <p class="lead dropcap">{{ home.intro.text }}</p>
   </div>
 </section>
 
