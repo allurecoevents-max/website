@@ -1,0 +1,433 @@
+# Pages CMS settings: tells the editor at app.pagescms.org what can be edited.
+media:
+  input: src/images
+  output: /images
+  categories: [image]
+  rename: safe
+
+components:
+  hero:
+    type: object
+    label: Top banner
+    fields:
+      - { name: eyebrow, label: Small text above the heading, type: string }
+      - { name: heading, label: Heading, type: string, required: true }
+      - { name: headingItalic, label: Heading (italic part, optional), type: string }
+      - { name: text, label: Text under the heading, type: text }
+      - { name: image, label: Background photo, type: image }
+      - { name: imageAlt, label: Photo description (for Google and screen readers), type: string }
+      - { name: button, label: Button text, type: string }
+  section:
+    type: object
+    fields:
+      - { name: eyebrow, label: Small text above the heading, type: string }
+      - { name: heading, label: Heading, type: string }
+      - { name: headingItalic, label: Heading (italic part, optional), type: string }
+      - { name: text, label: Text (leave a blank line between paragraphs), type: text }
+      - { name: image, label: Photo, type: image }
+      - { name: imageAlt, label: Photo description, type: string }
+  review:
+    type: object
+    fields:
+      - { name: name, label: Client name, type: string }
+      - { name: event, label: "Event and area (e.g. Wedding · London)", type: string }
+      - { name: quote, label: Review, type: text }
+  faqItem:
+    type: object
+    fields:
+      - { name: question, label: Question, type: string }
+      - { name: answer, label: Answer, type: text }
+  galleryImage:
+    type: object
+    fields:
+      - { name: image, label: Photo, type: image }
+      - { name: alt, label: Photo description, type: string }
+      - name: size
+        label: Size in the grid
+        type: select
+        options:
+          values: [normal, tall, wide]
+  cta:
+    type: object
+    label: Booking banner at the bottom
+    fields:
+      - { name: heading, label: Heading, type: string }
+      - { name: text, label: Text, type: string }
+      - { name: button, label: Button text, type: string }
+      - { name: image, label: Background photo, type: image }
+
+content:
+  - name: settings
+    label: Site settings
+    type: file
+    path: src/_data/site.json
+    format: json
+    fields:
+      - { name: name, label: Business name, type: string }
+      - { name: tagline, label: Footer text, type: text }
+      - { name: email, label: Email address, type: string }
+      - { name: whatsappNumber, label: "WhatsApp number (digits only, e.g. 447123456789; leave empty to hide the button)", type: string }
+      - { name: whatsappMessage, label: WhatsApp starting message, type: string }
+      - { name: calendlyUrl, label: "Calendly link (leave empty to hide the booking calendar)", type: string }
+      - { name: instagramUrl, label: Instagram link, type: string }
+      - { name: instagramHandle, label: Instagram name, type: string }
+      - { name: tiktokUrl, label: TikTok link, type: string }
+      - { name: tiktokHandle, label: TikTok name, type: string }
+      - { name: googleReviewsUrl, label: "Google reviews link (from your Google Business Profile; shows a link under the homepage reviews)", type: string }
+      - { name: googleVerification, label: "Google Search Console code (only the code inside content=\"...\")", type: string }
+      - { name: formspreeId, label: Formspree form ID (only change if you make a new form), type: string }
+      - { name: checklistPdf, label: Checklist PDF link, type: string }
+      - { name: url, label: Website address (change when you get your own domain), type: string }
+
+  - name: home
+    label: Homepage
+    type: file
+    path: src/_data/home.json
+    format: json
+    fields:
+      - { name: seoTitle, label: Google title, type: string }
+      - { name: seoDescription, label: Google description, type: text }
+      - name: hero
+        label: Top banner
+        type: object
+        fields:
+          - { name: eyebrow, label: Small text above the heading, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: headingItalic, label: Heading (italic part), type: string }
+          - { name: text, label: Text under the heading, type: text }
+          - { name: image, label: Background photo, type: image }
+          - { name: imageAlt, label: Photo description, type: string }
+          - { name: button, label: Main button text, type: string }
+          - { name: secondButton, label: Second button text, type: string }
+          - { name: secondButtonLink, label: Second button link, type: string }
+      - { name: trust, label: Trust points (strip under the banner), type: string, list: true }
+      - name: intro
+        label: Our story
+        type: object
+        fields:
+          - { name: eyebrow, label: Small text above the heading, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: headingItalic, label: Heading (italic part), type: string }
+          - { name: text, label: Text, type: text }
+      - name: services
+        label: Services section heading
+        type: object
+        fields:
+          - { name: eyebrow, label: Small text, type: string }
+          - { name: heading, label: Heading, type: string }
+      - name: founder
+        label: Meet the founder
+        type: object
+        fields:
+          - { name: eyebrow, label: Small text, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: image, label: Photo, type: image }
+          - { name: imageAlt, label: Photo description, type: string }
+          - { name: text, label: Text (leave a blank line between paragraphs), type: text }
+          - { name: signature, label: Signature, type: string }
+          - { name: button, label: Button text, type: string }
+      - name: process
+        label: How it works
+        type: object
+        fields:
+          - { name: eyebrow, label: Small text, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: intro, label: Intro, type: text }
+          - name: steps
+            label: Steps
+            type: object
+            list: true
+            fields:
+              - { name: title, label: Step title, type: string }
+              - { name: text, label: Step text, type: text }
+      - name: packages
+        label: Packages
+        type: object
+        fields:
+          - { name: eyebrow, label: Small text, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: intro, label: Intro, type: text }
+          - name: items
+            label: Packages
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{name}"
+            fields:
+              - { name: tier, label: Small label (e.g. Package one), type: string }
+              - { name: name, label: Package name, type: string }
+              - { name: tagline, label: Tagline, type: string }
+              - { name: price, label: "Button text (e.g. Enquire for pricing, or From £1,500)", type: string }
+              - { name: featured, label: Highlight as most popular, type: boolean }
+              - { name: features, label: What's included, type: string, list: true }
+          - { name: addonsEyebrow, label: Add-ons small text, type: string }
+          - { name: addonsIntro, label: Add-ons intro, type: text }
+          - { name: addons, label: Add-ons, type: string, list: true }
+      - name: reviews
+        label: Reviews
+        type: object
+        fields:
+          - { name: eyebrow, label: Small text, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: link, label: Link under the reviews (e.g. your Google reviews), type: string }
+          - { name: linkText, label: Link text, type: string }
+          - name: items
+            label: Reviews
+            component: review
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{name}"
+      - name: gallery
+        label: Photo gallery
+        type: object
+        fields:
+          - { name: eyebrow, label: Small text, type: string }
+          - { name: heading, label: Heading, type: string }
+          - name: images
+            label: Photos
+            component: galleryImage
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{alt}"
+      - name: instagram
+        label: Instagram section
+        type: object
+        fields:
+          - { name: eyebrow, label: Small text, type: string }
+          - { name: text, label: Text, type: text }
+      - name: checklist
+        label: Checklist download
+        type: object
+        fields:
+          - { name: eyebrow, label: Small text, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: text, label: Text, type: text }
+          - { name: button, label: Button text, type: string }
+      - name: faq
+        label: FAQ
+        type: object
+        fields:
+          - { name: eyebrow, label: Small text, type: string }
+          - { name: heading, label: Heading, type: string }
+          - name: items
+            label: Questions
+            component: faqItem
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{question}"
+      - name: contact
+        label: Contact section
+        type: object
+        fields:
+          - { name: eyebrow, label: Small text, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: text, label: Text, type: text }
+          - { name: calendlyHeading, label: Booking calendar heading, type: string }
+
+  - name: services
+    label: Service pages
+    type: collection
+    path: src/services
+    format: yaml-frontmatter
+    view:
+      fields: [title]
+      primary: title
+    fields:
+      - { name: title, label: Service name, type: string, required: true }
+      - { name: order, label: Position in menus (1 = first), type: number }
+      - { name: cardText, label: Short text on the homepage card, type: text }
+      - { name: cardImage, label: Homepage card photo, type: image }
+      - { name: cardImageAlt, label: Card photo description, type: string }
+      - { name: seoTitle, label: Google title, type: string }
+      - { name: seoDescription, label: Google description, type: text }
+      - { name: hero, component: hero }
+      - { name: intro, label: Intro section, component: section }
+      - { name: typesEyebrow, label: Event types small text (optional), type: string }
+      - { name: typesHeading, label: Event types heading (optional), type: string }
+      - name: types
+        label: Event types (optional cards)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: text, label: Text, type: text }
+          - { name: image, label: Photo, type: image }
+          - { name: imageAlt, label: Photo description, type: string }
+      - name: included
+        label: What's included
+        type: object
+        fields:
+          - { name: eyebrow, label: Small text, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: intro, label: Intro, type: text }
+          - { name: items, label: Items, type: string, list: true }
+          - { name: button, label: Button text (optional), type: string }
+          - { name: buttonLink, label: Button link, type: string }
+      - name: gallery
+        label: Photo gallery (optional)
+        component: galleryImage
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{alt}"
+      - name: reviews
+        label: Reviews
+        type: object
+        fields:
+          - { name: heading, label: Heading, type: string }
+          - name: items
+            label: Reviews
+            component: review
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{name}"
+      - name: faq
+        label: FAQ (optional)
+        type: object
+        fields:
+          - { name: eyebrow, label: Small text, type: string }
+          - { name: heading, label: Heading, type: string }
+          - name: items
+            label: Questions
+            component: faqItem
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{question}"
+      - { name: cta, component: cta }
+
+  - name: areas
+    label: Area pages
+    type: collection
+    path: src/areas
+    format: yaml-frontmatter
+    filename: "{slug}.md"
+    view:
+      fields: [title]
+      primary: title
+    fields:
+      - { name: title, label: "County or area name (also the page address, e.g. Hertfordshire)", type: string, required: true }
+      - { name: order, label: Position in footer (1 = first), type: number }
+      - { name: seoTitle, label: Google title, type: string }
+      - { name: seoDescription, label: Google description, type: text }
+      - { name: hero, component: hero }
+      - { name: intro, label: Intro section, component: section }
+      - { name: towns, label: Towns you cover, type: string, list: true }
+      - name: included
+        label: What you plan there
+        type: object
+        fields:
+          - { name: eyebrow, label: Small text, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: items, label: Items, type: string, list: true }
+      - name: reviews
+        label: Reviews
+        type: object
+        fields:
+          - name: items
+            label: Reviews
+            component: review
+            list: true
+      - name: faq
+        label: FAQ
+        type: object
+        fields:
+          - { name: heading, label: Heading, type: string }
+          - name: items
+            label: Questions
+            component: faqItem
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{question}"
+      - { name: cta, component: cta }
+
+  - name: journal
+    label: Journal articles
+    type: collection
+    path: src/journal
+    format: yaml-frontmatter
+    filename: "{slug}.md"
+    view:
+      fields: [title, category, date]
+      primary: title
+      default:
+        sort: date
+        order: desc
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: date, label: Date, type: date, options: { format: yyyy-MM-dd } }
+      - name: category
+        label: Category
+        type: select
+        options:
+          values: [Weddings, Proposals, Celebrations]
+      - { name: subtitle, label: Small text under the title, type: string }
+      - { name: readTime, label: "Read time (e.g. 5 minute read)", type: string }
+      - { name: description, label: Google description, type: text }
+      - { name: cardText, label: Short text on the Journal page, type: text }
+      - { name: image, label: Cover photo, type: image }
+      - { name: imageAlt, label: Cover photo description, type: string }
+      - { name: intro, label: Opening paragraph, type: text }
+      - { name: body, label: Article, type: rich-text, options: { format: markdown } }
+      - { name: ctaEyebrow, label: Closing small text, type: string }
+      - { name: ctaHeading, label: Closing heading, type: string }
+      - { name: ctaText, label: Closing text, type: string }
+      - { name: ctaButton, label: Closing button text, type: string }
+      - { name: ctaLink, label: Second button link (optional), type: string }
+      - { name: ctaLinkText, label: Second button text, type: string }
+
+  - name: portfolio
+    label: Portfolio (case studies)
+    type: collection
+    path: src/portfolio
+    format: yaml-frontmatter
+    filename: "{slug}.md"
+    view:
+      fields: [title, published, date]
+      primary: title
+    fields:
+      - { name: title, label: "Title (e.g. Zara's baby shower)", type: string, required: true }
+      - { name: published, label: "Published (tick to show it on the website; Portfolio appears in the menu once one is published)", type: boolean }
+      - { name: date, label: Event date, type: date, options: { format: yyyy-MM-dd } }
+      - { name: eventType, label: Event type, type: string }
+      - { name: area, label: Area, type: string }
+      - { name: guests, label: "Guests (e.g. 30 guests)", type: string }
+      - { name: venue, label: Venue, type: string }
+      - { name: summary, label: Short summary for the Portfolio page, type: text }
+      - { name: coverImage, label: Main photo, type: image }
+      - { name: coverImageAlt, label: Main photo description, type: string }
+      - { name: brief, label: The brief (what the client wanted), type: text }
+      - { name: whatWeDid, label: What we did, type: string, list: true }
+      - { name: details, label: The details, type: text }
+      - name: gallery
+        label: Photos
+        component: galleryImage
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{alt}"
+      - name: review
+        label: Client review
+        type: object
+        fields:
+          - { name: name, label: Client name, type: string }
+          - { name: quote, label: Review, type: text }
+      - { name: suppliers, label: Suppliers and credits, type: text }
+
+  - name: privacy
+    label: Privacy policy
+    type: file
+    path: src/privacy.md
+    format: yaml-frontmatter
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: body, label: Policy, type: rich-text, options: { format: markdown } }
