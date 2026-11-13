@@ -1,17 +1,13 @@
 {
   "name": "Allure & Co Events",
-  "url": "https://allurecoevent.netlify.app",
   "tagline": "Turning meaningful moments into unforgettable experiences. Based in London, planning across the UK.",
   "email": "allurecoevents@gmail.com",
+  "whatsappMessage": "Hi Allure & Co! I'd love to chat about an event I'm planning.",
   "instagramUrl": "https://www.instagram.com/allurecoevents",
   "instagramHandle": "@allurecoevents",
   "tiktokUrl": "https://www.tiktok.com/@allurecoevents",
   "tiktokHandle": "@allurecoevents",
-  "whatsappNumber": "",
-  "whatsappMessage": "Hi Allure & Co! I'd love to chat about an event I'm planning.",
-  "calendlyUrl": "",
-  "googleReviewsUrl": "",
-  "googleVerification": "",
   "formspreeId": "mnjkjvog",
-  "checklistPdf": "/downloads/wedding-checklist.pdf"
+  "checklistPdf": "/downloads/wedding-checklist.pdf",
+  "url": "https://allurecoevents.netlify.app"
 }
