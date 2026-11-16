@@ -74,6 +74,7 @@ content:
       - { name: tiktokUrl, label: TikTok link, type: string }
       - { name: tiktokHandle, label: TikTok name, type: string }
       - { name: googleReviewsUrl, label: "Google reviews link (from your Google Business Profile; shows a link under the homepage reviews)", type: string }
+      - { name: hitchedUrl, label: "Hitched storefront link (shows a 'Find us on Hitched' link on the homepage and footer)", type: string }
       - { name: googleVerification, label: "Google Search Console code (only the code inside content=\"...\")", type: string }
       - { name: formspreeId, label: Formspree form ID (only change if you make a new form), type: string }
       - { name: checklistPdf, label: Checklist PDF link, type: string }
