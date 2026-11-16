@@ -112,7 +112,7 @@
       </figure>
       {% endfor %}
     </div>
-    {% if r.link %}<p class="center reveal" style="margin-top:44px"><a class="text-link" href="{{ r.link }}" target="_blank" rel="noopener">{{ r.linkText or "Read more reviews" }}</a></p>{% endif %}
+    {% if r.link %}<p class="center reveal" style="margin-top:44px"><a class="text-link" href="{{ r.link }}"{% if "http" in r.link %} target="_blank" rel="noopener"{% endif %}>{{ r.linkText or "Read more reviews" }}</a></p>{% endif %}
   </div>
 </section>
 {% endif %}

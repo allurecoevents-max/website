@@ -1,0 +1,46 @@
+---
+layout: base.njk
+permalink: /reviews.html
+title: Reviews
+seoTitle: Reviews
+description: What clients say about Allure & Co Events, London wedding, proposal and celebration planners.
+---
+{%- set all = home.reviews.items | allReviews(collections.servicePages, collections.areaPages) -%}
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Kind words</span>
+      <h1>What our clients say</h1>
+      <p class="lead">Weddings, proposals and celebrations across London and the South East.</p>
+    </div>
+    <div class="quotes quotes--all">
+      {%- for q in all %}
+      <figure class="quote reveal">
+        <div class="quote__stars" aria-label="5 stars">★★★★★</div>
+        <blockquote>"{{ q.quote }}"</blockquote>
+        <figcaption><strong>{{ q.name }}</strong>{{ q.event }}</figcaption>
+      </figure>
+      {%- endfor %}
+    </div>
+
+    {% if site.hitchedUrl or site.googleReviewsUrl %}
+    <div class="find-us" style="margin-top:56px">
+      <div class="wrap" style="padding:0">
+        <span class="eyebrow">Leave or read reviews on</span>
+        {% if site.googleReviewsUrl %}<a href="{{ site.googleReviewsUrl }}" target="_blank" rel="noopener">Google <span aria-hidden="true">↗</span></a>{% endif %}
+        {% if site.hitchedUrl %}<a href="{{ site.hitchedUrl }}" target="_blank" rel="noopener">Hitched <span aria-hidden="true">↗</span></a>{% endif %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<section class="section section--cream">
+  <div class="wrap narrow center reveal">
+    <span class="eyebrow">Your turn</span>
+    <h2>Let's plan something worth talking about</h2>
+    {%- from "macros.njk" import bookButtons %}
+    {{ bookButtons(site.calendlyUrl) }}
+  </div>
+</section>

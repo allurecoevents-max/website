@@ -2,10 +2,10 @@
   "seoTitle": "Allure & Co Events | Luxury Wedding & Event Planner in London",
   "seoDescription": "Allure & Co Events is a London wedding and event planner. Weddings, proposals, baby showers, christenings and milestone celebrations across the UK. Book a free consultation.",
   "hero": {
-    "eyebrow": "London wedding & event planner",
+    "eyebrow": "London weddings, proposals & celebrations",
     "heading": "You celebrate.",
     "headingItalic": "We handle the rest.",
-    "text": "Weddings, proposals and life's biggest celebrations, planned down to the last detail so you can be fully present on the day.",
+    "text": "Styled with editorial detail and planned down to the last minute, so you can be fully present on the day.",
     "image": "/images/img-010.jpg",
     "imageAlt": "Wedding reception styled with white florals and candlelight",
     "button": "Book a free consultation",
@@ -57,6 +57,32 @@
       {
         "title": "You enjoy",
         "text": "On the day you relax and soak it all in. We take care of everything else."
+      }
+    ]
+  },
+  "whyUs": {
+    "eyebrow": "Why Allure & Co",
+    "heading": "Why clients choose us",
+    "items": [
+      {
+        "title": "One dedicated planner",
+        "text": "The same person from your first call to your final dance. No hand-offs, no repeating yourself."
+      },
+      {
+        "title": "A reply within 24 hours",
+        "text": "Every enquiry gets a personal reply within a day, and you will always know what happens next."
+      },
+      {
+        "title": "Trusted suppliers",
+        "text": "Florists, venues, photographers and caterers we know and recommend, matched to your style and budget."
+      },
+      {
+        "title": "Flexible payment plans",
+        "text": "Spread the cost in a way that works for you, agreed upfront in writing."
+      },
+      {
+        "title": "London-based, UK-wide",
+        "text": "Rooted in London, planning across Surrey, Kent, Essex and beyond."
       }
     ]
   },
@@ -117,7 +143,8 @@
       "Content creation on the day",
       "DIY setup assistance",
       "Event website assistance"
-    ]
+    ],
+    "pricingNote": "Every package is tailored to your plans, so we quote after your free consultation. You get a clear written quote before you commit, and flexible payment plans are available."
   },
   "reviews": {
     "eyebrow": "Kind words",
@@ -180,7 +207,8 @@
   },
   "instagram": {
     "eyebrow": "Follow along",
-    "text": "Behind-the-scenes setups, planning tips and the little details, on Instagram and TikTok."
+    "text": "Behind-the-scenes setups, planning tips and the little details, on Instagram and TikTok.",
+    "posts": []
   },
   "checklist": {
     "eyebrow": "Free download",

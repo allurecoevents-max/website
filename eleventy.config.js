@@ -20,6 +20,18 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("niceDate", (value) =>
     value ? new Date(value).toLocaleDateString("en-GB", { month: "long", year: "numeric" }) : ""
   );
+  // Every review on the site, once each: homepage first, then service and area pages
+  eleventyConfig.addFilter("allReviews", (homeItems = [], ...pageLists) => {
+    const seen = new Set();
+    const pages = pageLists.flat().map((p) => p.data?.reviews?.items || []);
+    return [homeItems, ...pages].flat().filter((r) => {
+      const key = r.name; // the same client can appear on several pages with a shorter quote
+      if (!r.quote || seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+  });
+
   eleventyConfig.addFilter("year", () => new Date().getFullYear());
   eleventyConfig.addFilter("isoDate", (value) => (value ? new Date(value).toISOString().slice(0, 10) : ""));
 

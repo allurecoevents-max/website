@@ -99,6 +99,25 @@ permalink: /index.html
   </div>
 </section>
 
+{% if home.whyUs and home.whyUs.items.length %}
+<section class="section why-us">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">{{ home.whyUs.eyebrow }}</span>
+      <h2>{{ home.whyUs.heading }}</h2>
+    </div>
+    <div class="why-us__grid">
+      {%- for item in home.whyUs.items %}
+      <div class="why-us__item reveal">
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.text }}</p>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
 <section class="section" id="packages">
   <div class="wrap">
     <div class="section-head reveal">
@@ -120,6 +139,13 @@ permalink: /index.html
       </article>
       {%- endfor %}
     </div>
+    {% if home.packages.pricingNote %}
+    <div class="pricing-note reveal">
+      <span class="eyebrow">How pricing works</span>
+      <p>{{ home.packages.pricingNote }}</p>
+      {% if site.calendlyUrl %}<a class="text-link" href="{{ site.calendlyUrl }}" target="_blank" rel="noopener">Book a free call to get your quote</a>{% endif %}
+    </div>
+    {% endif %}
     {% if home.packages.addons.length %}
     <div class="addons reveal">
       <span class="eyebrow">{{ home.packages.addonsEyebrow }}</span>
@@ -132,10 +158,7 @@ permalink: /index.html
   </div>
 </section>
 
-{%- set homeReviews = home.reviews -%}
-{%- if site.googleReviewsUrl -%}
-  {%- set homeReviews = { eyebrow: home.reviews.eyebrow, heading: home.reviews.heading, items: home.reviews.items, link: site.googleReviewsUrl, linkText: "Read our Google reviews" } -%}
-{%- endif -%}
+{%- set homeReviews = { eyebrow: home.reviews.eyebrow, heading: home.reviews.heading, items: home.reviews.items, link: "/reviews.html", linkText: "Read all reviews" } -%}
 {{ reviews(homeReviews) }}
 
 {% if site.hitchedUrl or site.googleReviewsUrl %}
@@ -168,6 +191,15 @@ permalink: /index.html
       <a class="btn btn--ghost" href="{{ site.tiktokUrl }}" target="_blank" rel="noopener">Follow on TikTok</a>
     </div>
   </div>
+  {% if home.instagram.posts and home.instagram.posts.length %}
+  <div class="wrap insta-grid reveal">
+    {%- for post in home.instagram.posts | batch(6) | first %}
+    <a class="insta-grid__item" href="{{ post.link or site.instagramUrl }}" target="_blank" rel="noopener">
+      {% image post.image, post.caption or "Instagram post by Allure & Co Events", "(max-width: 600px) 50vw, 200px" %}
+    </a>
+    {%- endfor %}
+  </div>
+  {% endif %}
 </section>
 
 <section class="section section--ink">
