@@ -22,8 +22,8 @@ intro:
     Tell us about your partner, your story and the feeling you want, and we'll turn it into a setting that's unmistakably yours. Candlelit rooftops, private dining rooms, floral arches, a quiet garden at golden hour: we find the place, style it, and keep everything under wraps.
 
     On the day we handle the setup, timing and any surprises, and can arrange a photographer hidden nearby so the moment is captured as it happens.
-  image: /images/img-013.jpg
-  imageAlt: Romantic proposal setup with candles and flowers
+  image: /images/img-014.jpg
+  imageAlt: Candlelit rooftop dome set up for a proposal
 included:
   eyebrow: What's included
   heading: How we can help
@@ -40,11 +40,11 @@ gallery:
   - image: /images/img-018.jpg
     alt: Floral heart proposal setup
     size: wide
-  - image: /images/img-006.jpg
-    alt: Romantic floral arrangement
+  - image: /images/img-007.jpg
+    alt: Elegant styled table setting
     size: normal
-  - image: /images/img-013.jpg
-    alt: Proposal setup
+  - image: /images/img-014.jpg
+    alt: Candlelit rooftop dome set up for a proposal
     size: normal
 reviews:
   heading: They said yes

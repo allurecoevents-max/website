@@ -18,8 +18,8 @@ intro:
     Surrey is one of the most popular places for couples who want a countryside feel without travelling far from London. Its country houses, barns, gardens and hotels suit everything from a relaxed summer wedding to a grand winter celebration.
 
     Countryside venues bring their own planning challenges: guest transport, timings for travel, outdoor weather plans and suppliers who know the venue. We take care of all of it, so you and your guests simply arrive and enjoy.
-  image: /images/img-023.jpg
-  imageAlt: Greenhouse styled dinner
+  image: /images/img-008.webp
+  imageAlt: Glass greenhouse venue with green velvet chairs
 towns:
   - Guildford
   - Woking

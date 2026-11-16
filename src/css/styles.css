@@ -614,3 +614,6 @@ h3 { font-size: 1.75rem; }
   .whatsapp { bottom: 84px; }
   .nav-open .mobile-cta { display: none; }
 }
+
+/* Close up gaps when gallery photos have mixed sizes */
+.gallery { grid-auto-flow: dense; }

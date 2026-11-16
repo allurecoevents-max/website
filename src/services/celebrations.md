@@ -24,24 +24,24 @@ typesHeading: Celebrations we plan
 types:
   - title: Baby showers
     text: Soft, elegant celebrations of new beginnings, from intimate brunches to full themed events.
-    image: /images/img-017.jpg
-    imageAlt: Baby shower setup
+    image: /images/img-016.jpg
+    imageAlt: Pastel shower table with balloons and florals
   - title: Bridal showers & engagements
     text: A beautiful start to the wedding journey with the people who matter most.
-    image: /images/img-016.jpg
-    imageAlt: Bridal shower table
+    image: /images/img-036.jpg
+    imageAlt: Elegant welcome backdrop with burgundy drapery
   - title: Christenings
     text: Meaningful, family-centred celebrations for your little one.
     image: /images/img-007.jpg
     imageAlt: Elegant table setting
   - title: Graduations
     text: Marking years of hard work with elegance and joy.
-    image: /images/img-019.jpg
-    imageAlt: Graduation celebration
+    image: /images/img-035.jpg
+    imageAlt: Candlelit outdoor reception with white florals
   - title: Milestone birthdays
     text: From candlelit dinners for ten to grand 30th, 40th and 50th parties.
-    image: /images/img-023.jpg
-    imageAlt: Styled dinner for a birthday
+    image: /images/img-008.webp
+    imageAlt: Glass greenhouse venue with green velvet chairs
   - title: Something else?
     text: Anniversaries, dinners, launches. If it's worth celebrating, we'd love to hear about it.
     image: /images/img-009.jpg
@@ -75,5 +75,5 @@ cta:
   heading: Let's celebrate together
   text: Tell us about your event and we'll reply within 24 hours.
   button: Plan my celebration
-  image: /images/img-024.jpg
+  image: /images/img-010.jpg
 ---

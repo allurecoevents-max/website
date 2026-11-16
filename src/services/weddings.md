@@ -22,8 +22,8 @@ intro:
     Planning a wedding is hundreds of decisions, dozens of suppliers and a timeline that has to work to the minute. We take that weight off you. Whether you want us from day one or just to run the day itself, you get one calm, organised person who knows every detail of your plan.
 
     We plan weddings of every size, from intimate London dinners to grand ballroom celebrations and multi-day cultural weddings, always tailored to your style and your budget.
-  image: /images/img-024.jpg
-  imageAlt: Grand ballroom wedding reception
+  image: /images/img-010.jpg
+  imageAlt: Ballroom reception with chandeliers and white florals
 included:
   eyebrow: What's included
   heading: How we can help
@@ -43,20 +43,17 @@ gallery:
   - image: /images/img-010.jpg
     alt: Luxury wedding reception ballroom
     size: wide
-  - image: /images/img-006.jpg
-    alt: Wedding floral centrepiece
-    size: normal
   - image: /images/img-007.jpg
-    alt: Wedding table setting
+    alt: Elegant styled table setting
     size: normal
   - image: /images/img-009.jpg
     alt: Watercolour wedding tablescape
     size: normal
   - image: /images/img-008.webp
     alt: Greenhouse wedding venue
-    size: normal
-  - image: /images/img-020.jpg
-    alt: Wedding couple
+    size: wide
+  - image: /images/img-035.jpg
+    alt: Candlelit outdoor reception with white florals
     size: wide
 reviews:
   heading: From our couples

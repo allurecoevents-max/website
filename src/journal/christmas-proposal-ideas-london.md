@@ -6,8 +6,8 @@ subtitle: Festive, romantic and easy to keep secret
 readTime: 5 minute read
 description: Romantic Christmas and New Year proposal ideas in London, with tips on timing, cover stories, weather plans and booking early.
 cardText: Festive proposal ideas, plus tips on timing, cover stories and the weather.
-image: /images/img-013.jpg
-imageAlt: Romantic candlelit proposal setup
+image: /images/img-014.jpg
+imageAlt: Candlelit rooftop dome set up for a proposal
 intro: The lights are up, everyone's in a celebrating mood and there are plenty of reasons to dress up. No wonder Christmas and New Year are among the most popular times to propose. Here are our favourite festive ideas for London, and how to pull them off.
 ctaEyebrow: Planning a festive proposal?
 ctaHeading: Let's make it magical

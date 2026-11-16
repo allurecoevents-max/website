@@ -6,8 +6,8 @@ subtitle: A simple guide for couples
 readTime: 5 minute read
 description: What a wedding planner and an on-the-day coordinator each do, and how to decide which one you need for your wedding.
 cardText: What each one does, and how to decide which you need.
-image: /images/img-024.jpg
-imageAlt: Grand ballroom wedding reception
+image: /images/img-010.jpg
+imageAlt: Ballroom reception with chandeliers and white florals
 intro: "\"Do we need a wedding planner?\" is one of the first questions couples ask us. The honest answer is: it depends on how much of the planning you want to do yourselves. Here's how to tell which kind of help is right for you."
 ctaHeading: Let's find the right fit for your wedding
 ctaButton: Book a free consultation

@@ -6,8 +6,8 @@ subtitle: A week-by-week checklist
 readTime: 5 minute read
 description: A week-by-week baby shower planning checklist, from eight weeks before to the day itself.
 cardText: What to do and when, from eight weeks out to the day itself.
-image: /images/img-017.jpg
-imageAlt: Baby shower table and decorations
+image: /images/img-016.jpg
+imageAlt: Pastel shower table with balloons and florals
 intro: A baby shower should feel calm and joyful, for the parent-to-be and for whoever is hosting. The secret is starting early enough that nothing is a rush. Here's the timeline we use when we plan baby showers.
 ctaHeading: Let's plan a beautiful baby shower
 ctaButton: Plan my celebration

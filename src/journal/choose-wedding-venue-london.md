@@ -6,8 +6,8 @@ subtitle: The questions to ask before you book
 readTime: 6 minute read
 description: How to choose a wedding venue in London, with the questions to ask on every viewing, hidden costs to check and what to book first.
 cardText: The questions to ask on every viewing, and the hidden costs to check.
-image: /images/img-024.jpg
-imageAlt: Grand ballroom wedding reception
+image: /images/img-010.jpg
+imageAlt: Ballroom reception with chandeliers and white florals
 intro: Your venue shapes almost every other decision, from your date and guest list to your budget and style. London has thousands of options, which is exciting and overwhelming in equal measure. Here's how we help couples narrow it down.
 ctaHeading: Want help finding the right venue?
 ctaText: Venue sourcing is part of our Luxe package. We shortlist venues that fit your style, numbers and budget, and come with you on viewings.

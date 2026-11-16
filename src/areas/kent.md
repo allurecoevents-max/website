@@ -18,8 +18,8 @@ intro:
     Kent offers some of the most varied settings in the South East: orchards and gardens, the coast, historic towns and countryside estates. It's a natural fit for garden weddings, summer celebrations and family occasions like christenings.
 
     Whether your guests are local or coming from London, we plan around travel, weather and timings, and coordinate every supplier so the day flows from start to finish.
-  image: /images/img-006.jpg
-  imageAlt: Luxury floral centrepiece
+  image: /images/img-007.jpg
+  imageAlt: Elegant styled table setting
 towns:
   - Canterbury
   - Sevenoaks
@@ -58,5 +58,5 @@ faq:
 cta:
   heading: Planning an event in Kent?
   text: Tell us about your plans and we'll reply within 24 hours.
-  image: /images/img-024.jpg
+  image: /images/img-010.jpg
 ---
