@@ -27,7 +27,13 @@ export default function (eleventyConfig) {
   // resizes them and serves a lighter format (WebP/AVIF) to browsers that support it.
   // Locally the original file is used, so previews still work.
   const onNetlify = process.env.NETLIFY === "true";
-  const widths = [480, 800, 1200, 1800];
+  const widths = [360, 480, 800, 1200, 1800];
+  // Small logo: request it at the size it's shown (2x for sharp screens)
+  eleventyConfig.addShortcode("logo", (src) =>
+    onNetlify
+      ? `<img src="${cdn(src, 108)}" width="54" height="54" alt="">`
+      : `<img src="${src}" width="54" height="54" alt="">`
+  );
   const cdn = (src, w) => `/.netlify/images?url=${encodeURIComponent(src)}&amp;w=${w}&amp;q=75`;
   eleventyConfig.addShortcode("image", (src, alt = "", sizes = "100vw", cls = "", lazy = true) => {
     if (!src) return "";

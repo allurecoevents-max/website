@@ -330,7 +330,7 @@ em.script { font-style: italic; color: var(--accent); }
 /* ---------- Footer ---------- */
 .site-footer { background: var(--ink); color: #cfc5bd; padding: 72px 0 28px; font-size: .95rem; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr 1.2fr; gap: 40px; }
-.site-footer h4 { font-family: var(--sans); font-size: .74rem; letter-spacing: .24em; text-transform: uppercase; color: var(--ivory); margin-bottom: 1.2em; font-weight: 400; }
+.site-footer h4, .footer-heading { font-family: var(--sans); font-size: .74rem; letter-spacing: .24em; text-transform: uppercase; color: var(--ivory); margin-bottom: 1.2em; font-weight: 400; }
 .site-footer ul { list-style: none; padding: 0; margin: 0; }
 .site-footer li { margin-bottom: .6em; }
 .site-footer a { text-decoration: none; }
@@ -555,3 +555,10 @@ h3 { font-size: 1.75rem; }
 /* Footer: giant wordmark */
 .footer-wordmark { font-family: var(--serif); font-size: clamp(3.6rem, 13vw, 11rem); line-height: .9; color: var(--ivory); margin: 0 0 56px; border-bottom: 1px solid rgba(246,241,234,.2); padding-bottom: 32px; letter-spacing: -.02em; }
 .footer-wordmark em { font-style: italic; color: var(--blush-deep); }
+
+/* "Find us on" strip (shows once Hitched or Google links are set) */
+.find-us { border-top: var(--rule); border-bottom: var(--rule); padding: 22px 0; }
+.find-us .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 36px; }
+.find-us .eyebrow { margin: 0; }
+.find-us a { font-family: var(--serif); font-size: 1.6rem; text-decoration: none; border-bottom: 1px solid transparent; }
+.find-us a:hover { border-bottom-color: var(--ink); }

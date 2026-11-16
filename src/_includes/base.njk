@@ -37,7 +37,9 @@
   <link rel="icon" href="/images/img-001.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="/css/styles.css">
   {%- if url == "/" %}
   <script type="application/ld+json">
@@ -61,7 +63,7 @@
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="logo" href="/" aria-label="{{ site.name }} home">
-        <img src="/images/img-001.jpg" alt="">
+        {% logo "/images/img-001.jpg" %}
         <span>Allure &amp; Co</span>
       </a>
       <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
@@ -87,7 +89,7 @@
           <p>{{ site.tagline }}</p>
         </div>
         <div>
-          <h4>Services</h4>
+          <p class="footer-heading">Services</p>
           <ul>
             {%- for s in collections.servicePages %}
             <li><a href="{{ s.url }}">{{ s.data.title }}</a></li>
@@ -96,7 +98,7 @@
           </ul>
         </div>
         <div>
-          <h4>Areas</h4>
+          <p class="footer-heading">Areas</p>
           <ul>
             <li><a href="/">London</a></li>
             {%- for a in collections.areaPages %}
@@ -105,7 +107,7 @@
           </ul>
         </div>
         <div>
-          <h4>Studio</h4>
+          <p class="footer-heading">Studio</p>
           <ul>
             <li><a href="/#about">About</a></li>
             {%- if collections.caseStudies.length %}<li><a href="/portfolio.html">Portfolio</a></li>{% endif %}
@@ -115,11 +117,13 @@
           </ul>
         </div>
         <div>
-          <h4>Get in touch</h4>
+          <p class="footer-heading">Get in touch</p>
           <ul>
             <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
             <li><a href="{{ site.instagramUrl }}" target="_blank" rel="noopener">Instagram</a></li>
             <li><a href="{{ site.tiktokUrl }}" target="_blank" rel="noopener">TikTok</a></li>
+            {%- if site.hitchedUrl %}<li><a href="{{ site.hitchedUrl }}" target="_blank" rel="noopener">Hitched</a></li>{% endif %}
+            {%- if site.googleReviewsUrl %}<li><a href="{{ site.googleReviewsUrl }}" target="_blank" rel="noopener">Google reviews</a></li>{% endif %}
           </ul>
         </div>
       </div>

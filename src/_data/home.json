@@ -3,8 +3,8 @@
   "seoDescription": "Allure & Co Events is a London wedding and event planner. Weddings, proposals, baby showers, christenings and milestone celebrations across the UK. Book a free consultation.",
   "hero": {
     "eyebrow": "London wedding & event planner",
-    "heading": "Turning your vision",
-    "headingItalic": "into reality",
+    "heading": "You celebrate.",
+    "headingItalic": "We handle the rest.",
     "text": "Weddings, proposals and life's biggest celebrations, planned down to the last detail so you can be fully present on the day.",
     "image": "/images/img-010.jpg",
     "imageAlt": "Wedding reception styled with white florals and candlelight",
@@ -30,11 +30,11 @@
   },
   "founder": {
     "eyebrow": "Meet the founder",
-    "heading": "Hello, I'm Asmeret",
+    "heading": "Hello from the founder",
     "image": "/images/img-004.jpg",
     "imageAlt": "Planning mood board with fabric swatches and stationery",
     "text": "My love for event planning was born from a deeply personal moment. After planning my own events and wedding, I realised something unexpected: I loved the planning even more than the day itself. That feeling told me everything I needed to know.\n\nNow I bring that same passion and obsessive attention to detail to every client. When you work with Allure & Co, you work with me personally, from our first call to your final dance. Based in London, I plan events across the UK and beyond, always with one goal: that you get to enjoy every single moment.",
-    "signature": "Asmeret",
+    "signature": "",
     "button": "Book a call with me"
   },
   "process": {

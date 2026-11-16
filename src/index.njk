@@ -116,6 +116,16 @@ permalink: /index.html
 {%- endif -%}
 {{ reviews(homeReviews) }}
 
+{% if site.hitchedUrl or site.googleReviewsUrl %}
+<div class="find-us">
+  <div class="wrap">
+    <span class="eyebrow">Find us on</span>
+    {% if site.googleReviewsUrl %}<a href="{{ site.googleReviewsUrl }}" target="_blank" rel="noopener">Google <span aria-hidden="true">↗</span></a>{% endif %}
+    {% if site.hitchedUrl %}<a href="{{ site.hitchedUrl }}" target="_blank" rel="noopener">Hitched <span aria-hidden="true">↗</span></a>{% endif %}
+  </div>
+</div>
+{% endif %}
+
 <section class="section" id="gallery">
   <div class="wrap">
     <div class="section-head reveal">
