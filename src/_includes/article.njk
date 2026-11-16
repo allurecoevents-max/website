@@ -19,6 +19,7 @@ layout: base.njk
         {% if ctaText %}<p>{{ ctaText }}</p>{% endif %}
         <div class="btn-row" style="justify-content:center">
           <a class="btn" href="/#contact">{{ ctaButton or "Book a free consultation" }}</a>
+          {% if site.calendlyUrl %}<a class="btn btn--ghost" href="{{ site.calendlyUrl }}" target="_blank" rel="noopener">Book a 30-min call</a>{% endif %}
           {% if ctaLink %}<a class="btn btn--ghost" href="{{ ctaLink }}">{{ ctaLinkText }}</a>{% endif %}
         </div>
       </div>

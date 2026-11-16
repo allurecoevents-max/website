@@ -139,7 +139,14 @@
 {% endif %}
 {% endmacro %}
 
-{% macro cta(c) %}
+{% macro bookButtons(calendly, light=false) %}
+<div class="btn-row book-buttons">
+  <a class="btn{% if light %} btn--light{% endif %}" href="/#contact">Send an enquiry</a>
+  {% if calendly %}<a class="btn {% if light %}btn--outline-light{% else %}btn--ghost{% endif %}" href="{{ calendly }}" target="_blank" rel="noopener">Book a 30-min call</a>{% endif %}
+</div>
+{% endmacro %}
+
+{% macro cta(c, calendly="") %}
 {% if c and c.heading %}
 <section class="section cta-band">
   {% if c.image %}{% image c.image, "", "100vw" %}{% endif %}
@@ -147,7 +154,7 @@
     <span class="eyebrow">{{ c.eyebrow or "Free, no-obligation consultation" }}</span>
     <h2>{{ c.heading }}</h2>
     {% if c.text %}<p>{{ c.text }}</p>{% endif %}
-    <a class="btn btn--light" href="/#contact">{{ c.button or "Book a free consultation" }}</a>
+    {{ bookButtons(calendly, true) }}
   </div>
 </section>
 {% endif %}

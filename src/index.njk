@@ -13,6 +13,28 @@ permalink: /index.html
   </ul>
 </div>
 
+<nav class="chooser" aria-label="What are you planning?">
+  <div class="wrap">
+    <p class="chooser__label">What are you planning?</p>
+    <div class="chooser__grid">
+      {%- for s in collections.servicePages %}
+      <a class="chooser__item" href="{{ s.url }}">
+        <span class="chooser__num">0{{ loop.index }}</span>
+        <span class="chooser__title">{{ s.data.title }}</span>
+        <span class="chooser__text">{{ s.data.cardText }}</span>
+        <span class="chooser__arrow" aria-hidden="true">→</span>
+      </a>
+      {%- endfor %}
+      <a class="chooser__item chooser__item--cta" href="{{ site.calendlyUrl or '#contact' }}"{% if site.calendlyUrl %} target="_blank" rel="noopener"{% endif %}>
+        <span class="chooser__num">?</span>
+        <span class="chooser__title">Not sure yet?</span>
+        <span class="chooser__text">Book a free 30-minute call and we'll help you work it out.</span>
+        <span class="chooser__arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
 <section class="section">
   <div class="wrap intro-editorial reveal">
     <div>

@@ -562,3 +562,55 @@ h3 { font-size: 1.75rem; }
 .find-us .eyebrow { margin: 0; }
 .find-us a { font-family: var(--serif); font-size: 1.6rem; text-decoration: none; border-bottom: 1px solid transparent; }
 .find-us a:hover { border-bottom-color: var(--ink); }
+
+/* "What are you planning?" chooser under the masthead */
+.chooser { border-bottom: var(--rule); }
+.chooser__label { font-size: .74rem; letter-spacing: .28em; text-transform: uppercase; margin: 0; padding: 22px 0 0; }
+.chooser__grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+.chooser__item {
+  position: relative; display: flex; flex-direction: column; gap: 6px; text-decoration: none;
+  padding: 22px 48px 26px 0; border-left: 0; transition: color .2s;
+}
+.chooser__item + .chooser__item { padding-left: 24px; border-left: 1px solid var(--line); }
+.chooser__num { font-size: .72rem; letter-spacing: .24em; color: var(--accent); }
+.chooser__title { font-family: var(--serif); font-size: 2rem; line-height: 1.05; }
+.chooser__text { font-size: .92rem; color: var(--ink-soft); line-height: 1.5; }
+.chooser__arrow { position: absolute; right: 16px; top: 24px; font-size: 1.4rem; transition: transform .25s; }
+.chooser__item:hover .chooser__arrow { transform: translateX(6px); }
+.chooser__item:hover .chooser__title { color: var(--accent); }
+.chooser__item--cta .chooser__title { font-style: italic; color: var(--accent); }
+@media (max-width: 960px) {
+  .chooser__grid { grid-template-columns: 1fr 1fr; }
+  .chooser__item:nth-child(3) { padding-left: 0; border-left: 0; }
+  .chooser__item:nth-child(n+3) { border-top: 1px solid var(--line); }
+}
+@media (max-width: 560px) {
+  .chooser__grid { grid-template-columns: 1fr; }
+  .chooser__item, .chooser__item + .chooser__item { padding: 18px 40px 20px 0; border-left: 0; }
+  .chooser__item + .chooser__item { border-top: 1px solid var(--line); }
+  .chooser__title { font-size: 1.7rem; }
+}
+
+/* Two booking options side by side */
+.book-buttons { justify-content: center; }
+
+/* Mobile menu: show the extra "Book a call" link only on small screens */
+.nav__mobile-only { display: none; }
+@media (max-width: 1080px) {
+  .nav__mobile-only { display: inline-block; }
+}
+
+/* Booking bar fixed to the bottom on phones */
+.mobile-cta { display: none; }
+@media (max-width: 860px) {
+  .mobile-cta {
+    display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 8px;
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 95;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+    background: var(--ivory); border-top: var(--rule);
+  }
+  .mobile-cta .btn { padding: .85rem .5rem; font-size: .72rem; letter-spacing: .16em; }
+  body { padding-bottom: 72px; }
+  .whatsapp { bottom: 84px; }
+  .nav-open .mobile-cta { display: none; }
+}
