@@ -1,11 +1,11 @@
 {
-  "seoTitle": "Allure & Co Events | Luxury Wedding & Event Planner in London",
-  "seoDescription": "Allure & Co Events is a London wedding and event planner. Weddings, proposals, baby showers, christenings and milestone celebrations across the UK. Book a free consultation.",
+  "seoTitle": "Allure & Co Events | London Proposal & Wedding Planner",
+  "seoDescription": "Allure & Co Events is a London proposal and wedding planner. One planner from the proposal to the wedding day, plus engagement parties, showers and celebrations across the UK. Book a free consultation.",
   "hero": {
-    "eyebrow": "London weddings, proposals & celebrations",
-    "heading": "You celebrate.",
-    "headingItalic": "We handle the rest.",
-    "text": "Styled with editorial detail and planned down to the last minute, so you can be fully present on the day.",
+    "eyebrow": "London proposals, showers & weddings",
+    "heading": "From the proposal",
+    "headingItalic": "to the wedding day.",
+    "text": "One planner for every moment. Styled with editorial detail and planned down to the last minute, so you can be fully present on the day.",
     "image": "/images/img-010.jpg",
     "imageAlt": "Wedding reception styled with white florals and candlelight",
     "button": "Book a free consultation",
@@ -23,6 +23,43 @@
     "heading": "An eye for the details",
     "headingItalic": "others miss",
     "text": "Allure & Co is a London event planning studio for weddings, intimate gatherings and milestones worth marking. We design every occasion with creativity, care and a quiet touch of magic, and we take the stress off your plate so the day feels effortless from your side of it."
+  },
+  "journey": {
+    "eyebrow": "Your journey with us",
+    "heading": "One planner,",
+    "headingItalic": "every moment",
+    "intro": "Most couples meet a new planner for every milestone. With us, you keep the same one from the question to the 'I do', so we already know your story, your style and your favourite flowers.",
+    "stages": [
+      {
+        "title": "The proposal",
+        "text": "A surprise they'll never forget, designed around your story and set up while they're none the wiser.",
+        "image": "/images/img-018.jpg",
+        "imageAlt": "Candlelit proposal with a floral heart",
+        "link": "/proposals.html"
+      },
+      {
+        "title": "The engagement party",
+        "text": "Celebrate the yes with the people you love, styled to set the tone for what's coming.",
+        "image": "/images/img-036.jpg",
+        "imageAlt": "Elegant welcome backdrop with burgundy drapery",
+        "link": "/celebrations.html"
+      },
+      {
+        "title": "The shower",
+        "text": "A bridal shower styled down to the last petal, so the bride-to-be can simply enjoy it.",
+        "image": "/images/img-016.jpg",
+        "imageAlt": "Bridal shower table styled with florals",
+        "link": "/celebrations.html"
+      },
+      {
+        "title": "The wedding day",
+        "text": "Everything we've learned about you, brought together for the biggest day of all.",
+        "image": "/images/img-035.jpg",
+        "imageAlt": "Candlelit outdoor reception with white florals",
+        "link": "/weddings.html"
+      }
+    ],
+    "offer": "Planned your proposal with us? You get 10% off wedding planning when you come back for the big day."
   },
   "services": {
     "eyebrow": "What we plan",
@@ -246,6 +283,7 @@
     "eyebrow": "Book a free consultation",
     "heading": "Let's start planning",
     "text": "Tell us a little about your event and we'll get back to you within 24 hours to arrange your free, no-obligation consultation.",
-    "calendlyHeading": "Book your free consultation call"
+    "calendlyHeading": "Book your free consultation call",
+    "review": { "name": "", "event": "", "quote": "" }
   }
 }

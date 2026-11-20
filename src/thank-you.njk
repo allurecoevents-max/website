@@ -11,6 +11,14 @@ noindex: true
     <h1>We've received your message</h1>
     <p class="lead" id="ty-text">Thank you for getting in touch. We'll reply within 24 hours to arrange your free consultation. Keep an eye on your inbox (and your spam folder, just in case).</p>
     <p id="ty-checklist" hidden><a class="btn" href="{{ site.checklistPdf }}" download>Download your checklist</a></p>
+    {% if site.calendlyUrl %}
+    <div id="ty-call" class="ty-call" hidden>
+      <span class="eyebrow">Want to talk sooner?</span>
+      <p>Pick a time for your free 30-minute call now, and we'll come prepared with ideas.</p>
+      <a class="btn" href="{{ site.calendlyUrl }}" target="_blank" rel="noopener">Book my free call</a>
+    </div>
+    {% endif %}
+    <p id="ty-guide" hidden><a class="btn" href="{{ site.guidePdf }}" download>Download the services guide</a></p>
     <div class="btn-row" style="margin-top:2rem;justify-content:center">
       <a class="btn btn--ghost" href="/">Back to home</a>
       <a class="btn btn--ghost" href="{{ site.instagramUrl }}" target="_blank" rel="noopener">Follow on Instagram</a>
@@ -21,5 +29,12 @@ noindex: true
   if (new URLSearchParams(location.search).has("checklist")) {
     document.getElementById("ty-text").textContent = "Your wedding planning checklist is ready. Download it below, and when you're ready to talk planning, we're here.";
     document.getElementById("ty-checklist").hidden = false;
+  }
+  if (new URLSearchParams(location.search).has("enquiry") && document.getElementById("ty-call")) {
+    document.getElementById("ty-call").hidden = false;
+  }
+  if (new URLSearchParams(location.search).has("guide")) {
+    document.getElementById("ty-text").textContent = "Your services guide is ready. Download it below. When you'd like to talk through your plans, book a free call and we'll take it from there.";
+    document.getElementById("ty-guide").hidden = false;
   }
 </script>

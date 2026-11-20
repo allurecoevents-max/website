@@ -649,3 +649,69 @@ h3 { font-size: 1.75rem; }
 /* Reviews page */
 .quotes--all { grid-template-columns: repeat(3, 1fr); gap: 40px; }
 @media (max-width: 960px) { .quotes--all { grid-template-columns: 1fr; } }
+
+/* Your journey with us (homepage) */
+.journey__grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; position: relative; }
+.journey__item a { display: block; color: inherit; text-decoration: none; }
+.journey__img { aspect-ratio: 4 / 5; overflow: hidden; margin-bottom: 18px; }
+.journey__img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s ease; }
+.journey__item a:hover .journey__img img { transform: scale(1.04); }
+.journey__num { display: block; font-family: var(--serif); font-style: italic; font-size: 1.6rem; color: var(--accent); border-top: var(--rule); padding-top: 12px; }
+.journey__item h3 { font-size: 1.5rem; margin: .25em 0 .35em; }
+.journey__item p { font-size: .95rem; color: var(--ink-soft); margin: 0; }
+.journey__offer { margin: 48px auto 0; max-width: 720px; text-align: center; font-family: var(--serif); font-style: italic; font-size: 1.35rem; line-height: 1.45; border-top: var(--rule); border-bottom: var(--rule); padding: 22px 0; }
+@media (max-width: 960px) { .journey__grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .journey__grid { grid-template-columns: 1fr; } .journey__img { aspect-ratio: 3 / 2; } }
+
+/* Services guide request band */
+.guide-band { background: var(--blush); }
+.guide { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 72px); align-items: center; }
+.guide__text h2 { margin: .3em 0 .4em; }
+.guide__text p { color: var(--ink-soft); margin: 0; max-width: 46ch; }
+.guide__form { grid-template-columns: 1fr 1fr; }
+.guide__form .btn { grid-column: 1 / -1; }
+.guide__form .form-note { grid-column: 1 / -1; font-size: .82rem; color: var(--ink-soft); margin: 0; }
+.guide__form .form-status { grid-column: 1 / -1; }
+@media (max-width: 860px) { .guide { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .guide__form { grid-template-columns: 1fr; } }
+
+/* Related links (service and seasonal pages) */
+.related { display: grid; grid-template-columns: repeat(3, 1fr); border-top: var(--rule); }
+.related__item { position: relative; display: grid; gap: 6px; padding: 22px 40px 24px 0; color: inherit; text-decoration: none; border-bottom: 1px solid var(--line); }
+.related__item + .related__item { padding-left: 22px; border-left: 1px solid var(--line); }
+.related__title { font-family: var(--serif); font-size: 1.45rem; line-height: 1.15; }
+.related__text { font-size: .95rem; color: var(--ink-soft); }
+.related__arrow { position: absolute; right: 14px; top: 24px; color: var(--accent); transition: transform .2s ease; }
+.related__item:hover .related__arrow { transform: translateX(4px); }
+.related__item:hover .related__title { color: var(--accent); }
+@media (max-width: 860px) {
+  .related { grid-template-columns: 1fr; }
+  .related__item + .related__item { padding-left: 0; border-left: 0; }
+}
+
+/* Enquiry form: event type chips and small extras */
+.chips { border: 0; padding: 0; margin: 0; min-width: 0; }
+.chips legend { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 10px; padding: 0; }
+.chips__row { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { position: relative; cursor: pointer; }
+.chip input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.chip span { display: inline-block; border: 1px solid var(--ink); padding: 9px 16px; font-size: .9rem; line-height: 1.2; transition: background .15s ease, color .15s ease; }
+.chip:hover span { background: var(--blush); }
+.chip input:checked + span { background: var(--ink); color: var(--ivory); }
+.chip input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 2px; }
+.check { display: flex !important; align-items: center; gap: 8px; margin: 10px 0 0 !important; font-size: .85rem !important; letter-spacing: 0 !important; text-transform: none !important; cursor: pointer; }
+.check input { width: auto !important; border: 0 !important; accent-color: var(--ink); }
+.field input:disabled { opacity: .45; }
+.form [hidden] { display: none !important; }
+.enquiry__send { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.enquiry__promise { margin: 0; font-size: .88rem; color: var(--ink-soft); }
+
+.ty-call { margin: 2.2rem auto 0; padding: 26px 24px; border-top: var(--rule); border-bottom: var(--rule); max-width: 560px; }
+.ty-call p { margin: .5em 0 1.2em; color: var(--ink-soft); }
+
+.chips .chip { display: inline-block; margin: 0; font-size: inherit; letter-spacing: normal; text-transform: none; color: var(--ink); }
+
+/* Review beside the enquiry form */
+.contact-review { margin: 32px 0 0; padding: 22px 0 0; border-top: var(--rule); }
+.contact-review blockquote { margin: 8px 0 10px; font-family: var(--serif); font-style: italic; font-size: 1.3rem; line-height: 1.4; }
+.contact-review figcaption { font-size: .78rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }

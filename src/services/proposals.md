@@ -1,6 +1,7 @@
 ---
 title: Proposals
 order: 2
+enquiryType: Proposal
 cardText: A private, unforgettable moment they'll say yes to, styled and kept secret.
 cardImage: /images/img-018.jpg
 cardImageAlt: Candlelit proposal setup with a floral heart
@@ -22,8 +23,23 @@ intro:
     Tell us about your partner, your story and the feeling you want, and we'll turn it into a setting that's unmistakably yours. Candlelit rooftops, private dining rooms, floral arches, a quiet garden at golden hour: we find the place, style it, and keep everything under wraps.
 
     On the day we handle the setup, timing and any surprises, and can arrange a photographer hidden nearby so the moment is captured as it happens.
+
+    And after the yes, we're still here. From the engagement party and the shower to the wedding day itself, you keep the same planner who already knows your story. Couples who plan their proposal with us get 10% off wedding planning when they come back for the big day.
   image: /images/img-014.jpg
   imageAlt: Candlelit rooftop dome set up for a proposal
+steps:
+  eyebrow: How it works
+  heading: Your proposal, step by step
+  intro: Nervous about keeping it a secret? Here's exactly what happens, from your first message to the yes.
+  items:
+    - title: A secret first call
+      text: We talk through your partner, your story, your budget and the date. We only ever contact you.
+    - title: The plan
+      text: We suggest the setting, styling and timing, plus a believable reason to get your partner there.
+    - title: Setup day
+      text: We arrive early and set everything up while your partner is none the wiser.
+    - title: The yes
+      text: You walk in, ask the question, and a hidden photographer captures it. We pack down afterwards.
 included:
   eyebrow: What's included
   heading: How we can help
@@ -58,6 +74,19 @@ reviews:
     - name: Jade K.
       event: Celebration · London
       quote: She has a real gift for understanding what you want, sometimes before you even know yourself.
+related:
+  eyebrow: Seasonal proposals
+  heading: Planning for a special date?
+  items:
+    - title: Christmas & New Year proposals
+      text: Festive settings, booked early before the December rush.
+      link: /christmas-proposals-london.html
+    - title: Valentine's Day proposals
+      text: The most romantic day of the year, planned weeks ahead.
+      link: /valentines-proposals-london.html
+    - title: From proposal to wedding
+      text: Why one planner for both makes sense.
+      link: /journal-proposal-to-wedding-one-planner.html
 faq:
   eyebrow: Proposal FAQ
   heading: Good to know
@@ -68,6 +97,8 @@ faq:
       answer: We only ever contact you, use discreet setups and plan a believable reason to get your partner to the location at the right time.
     - question: Can you plan a proposal outside London?
       answer: Yes. We plan proposals across the UK and abroad. Travel costs are always discussed upfront.
+    - question: Can you plan our wedding too?
+      answer: We'd love to. Many of our couples keep us from the proposal all the way to the wedding day, and anyone who planned their proposal with us gets 10% off wedding planning. Mention it when you get in touch.
 cta:
   heading: Let's plan the perfect moment
   text: Tell us your idea and we'll reply within 24 hours.

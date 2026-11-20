@@ -45,6 +45,31 @@ permalink: /index.html
   </div>
 </section>
 
+{% if home.journey and home.journey.stages.length %}
+<section class="section section--cream journey" id="journey">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">{{ home.journey.eyebrow }}</span>
+      <h2>{{ heading(home.journey.heading, home.journey.headingItalic, true) }}</h2>
+      {% if home.journey.intro %}<p class="lead">{{ home.journey.intro }}</p>{% endif %}
+    </div>
+    <ol class="journey__grid">
+      {%- for st in home.journey.stages %}
+      <li class="journey__item reveal">
+        <a href="{{ st.link or '#contact' }}">
+          <div class="journey__img">{% image st.image, st.imageAlt, "(max-width: 560px) 100vw, (max-width: 960px) 50vw, 300px" %}</div>
+          <span class="journey__num">0{{ loop.index }}</span>
+          <h3>{{ st.title }}</h3>
+          <p>{{ st.text }}</p>
+        </a>
+      </li>
+      {%- endfor %}
+    </ol>
+    {% if home.journey.offer %}<p class="journey__offer reveal">{{ home.journey.offer }}</p>{% endif %}
+  </div>
+</section>
+{% endif %}
+
 <section class="section section--cream" id="services">
   <div class="wrap">
     <div class="section-head reveal">
@@ -158,7 +183,9 @@ permalink: /index.html
   </div>
 </section>
 
-{%- set homeReviews = { eyebrow: home.reviews.eyebrow, heading: home.reviews.heading, items: home.reviews.items, link: "/reviews.html", linkText: "Read all reviews" } -%}
+{% include "guide-form.njk" %}
+
+{%- set homeReviews ={ eyebrow: home.reviews.eyebrow, heading: home.reviews.heading, items: home.reviews.items, link: "/reviews.html", linkText: "Read all reviews" } -%}
 {{ reviews(homeReviews) }}
 
 {% if site.hitchedUrl or site.googleReviewsUrl %}
@@ -236,37 +263,89 @@ permalink: /index.html
         <li><span>TikTok</span><a href="{{ site.tiktokUrl }}" target="_blank" rel="noopener">{{ site.tiktokHandle }}</a></li>
         <li><span>Based in</span>London, planning across the UK</li>
       </ul>
+      {% if home.contact.review and home.contact.review.quote %}
+      <figure class="contact-review">
+        <div class="quote__stars" aria-label="5 stars">★★★★★</div>
+        <blockquote>"{{ home.contact.review.quote }}"</blockquote>
+        <figcaption><strong>{{ home.contact.review.name }}</strong>{% if home.contact.review.event %} · {{ home.contact.review.event }}{% endif %}</figcaption>
+      </figure>
+      {% endif %}
     </div>
-    <form class="form reveal" action="https://formspree.io/f/{{ site.formspreeId }}" method="POST" data-ajax data-success="/thank-you.html">
-      <input type="hidden" name="_subject" value="New consultation enquiry">
+    <form class="form enquiry reveal" action="https://formspree.io/f/{{ site.formspreeId }}" method="POST" data-ajax data-enquiry data-success="/thank-you.html?enquiry=1">
+      <input type="hidden" name="_subject" value="New enquiry">
+      <input type="hidden" name="cameFrom" value="">
+      <input type="hidden" name="firstPage" value="">
       <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <fieldset class="field full chips">
+        <legend>What are you planning? *</legend>
+        <div class="chips__row">
+          {%- for t in ["Wedding", "Proposal", "Engagement party", "Bridal shower", "Baby shower", "Birthday or milestone", "Something else"] %}
+          <label class="chip"><input type="radio" name="eventType" value="{{ t }}" required><span>{{ t }}</span></label>
+          {%- endfor %}
+        </div>
+      </fieldset>
+
       <div class="field"><label for="f-first">First name *</label><input id="f-first" name="firstName" required autocomplete="given-name"></div>
-      <div class="field"><label for="f-last">Last name</label><input id="f-last" name="lastName" autocomplete="family-name"></div>
       <div class="field"><label for="f-email">Email *</label><input id="f-email" type="email" name="email" required autocomplete="email"></div>
-      <div class="field"><label for="f-phone">Phone</label><input id="f-phone" type="tel" name="phone" autocomplete="tel"></div>
+      <div class="field"><label for="f-phone">Phone or WhatsApp</label><input id="f-phone" type="tel" name="phone" autocomplete="tel"></div>
       <div class="field">
-        <label for="f-type">Event type *</label>
-        <select id="f-type" name="eventType" required>
-          <option value="">Please choose</option>
-          <option>Wedding</option><option>Proposal</option><option>Engagement party</option><option>Bridal shower</option>
-          <option>Baby shower</option><option>Christening</option><option>Graduation</option><option>Birthday</option><option>Other</option>
+        <label for="f-contact">Best way to reach you</label>
+        <select id="f-contact" name="contactBy">
+          <option>Email</option><option>Phone call</option><option>WhatsApp</option>
         </select>
       </div>
-      <div class="field"><label for="f-date">Event date</label><input id="f-date" type="date" name="eventDate"></div>
+
       <div class="field">
-        <label for="f-guests">Guest count</label>
+        <label for="f-date">Date</label>
+        <input id="f-date" type="date" name="eventDate">
+        <label class="check"><input type="checkbox" name="dateFlexible" value="Not set yet" id="f-flex"> Not set yet / flexible</label>
+      </div>
+      <div class="field">
+        <label for="f-area">Where?</label>
+        <input id="f-area" name="location" placeholder="e.g. Central London, at home">
+      </div>
+
+      <div class="field" data-show-for="Wedding">
+        <label for="f-venue">Have you booked a venue?</label>
+        <select id="f-venue" name="venueBooked">
+          <option value="">Please choose</option><option>Yes</option><option>Still looking</option><option>Not started yet</option>
+        </select>
+      </div>
+      <div class="field" data-show-for="Wedding">
+        <label for="f-help">How much help would you like?</label>
+        <select id="f-help" name="packageInterest">
+          <option value="">Please choose</option>
+          <option>Final Touch: on-the-day coordination</option>
+          <option>Signature: guidance through planning</option>
+          <option>Luxe: full planning</option>
+          <option>Not sure yet</option>
+        </select>
+      </div>
+      <div class="field full" data-show-for="Proposal">
+        <label for="f-secret">Is there anything we should know to keep it a secret?</label>
+        <input id="f-secret" name="secretNotes" placeholder="e.g. we share an email, only text me after 6pm">
+      </div>
+      <div class="field" data-hide-for="Proposal">
+        <label for="f-guests">Number of guests</label>
         <select id="f-guests" name="guestCount">
           <option value="">Please choose</option>
-          <option>Just us two</option><option>Under 30</option><option>30–80</option><option>80–150</option><option>150+</option>
+          <option>Under 30</option><option>30–80</option><option>80–150</option><option>150+</option><option>Not sure yet</option>
         </select>
       </div>
-      <div class="field">
-        <label for="f-budget">Budget range</label>
-        <select id="f-budget" name="budgetRange">
+      <div class="field" data-budget-field>
+        <label for="f-budget">Budget for our part</label>
+        <select id="f-budget" name="budgetRange" data-budgets='{"Proposal":["Under £500","£500–£1,000","£1,000–£2,500","£2,500+","Not sure yet"],"Wedding":["Under £2,000","£2,000–£5,000","£5,000–£15,000","£15,000+","Not sure yet"],"default":["Under £500","£500–£1,500","£1,500–£3,000","£3,000+","Not sure yet"]}'>
           <option value="">Please choose</option>
-          <option>Under £2,000</option><option>£2,000–£5,000</option><option>£5,000–£15,000</option><option>£15,000–£30,000</option><option>£30,000+</option><option>Not sure yet</option>
+          <option>Not sure yet</option>
         </select>
       </div>
+
+      <div class="field full">
+        <label for="f-inspo">Share your inspiration (optional)</label>
+        <input id="f-inspo" name="inspiration" inputmode="url" placeholder="A Pinterest board, Instagram post or any link you love">
+      </div>
+      <div class="field full"><label for="f-vision">Tell us a little about it</label><textarea id="f-vision" name="vision" placeholder="The feeling you want, colours, ideas, anything you've seen and loved..."></textarea></div>
       <div class="field full">
         <label for="f-heard">How did you hear about us?</label>
         <select id="f-heard" name="heardAbout">
@@ -275,9 +354,11 @@ permalink: /index.html
           <option>A venue or supplier</option><option>A friend or past client</option><option>Other</option>
         </select>
       </div>
-      <div class="field full"><label for="f-vision">Tell us about your vision</label><textarea id="f-vision" name="vision" placeholder="Venue ideas, colours, the feeling you want..."></textarea></div>
+      <div class="full enquiry__send">
+        <button class="btn" type="submit">Send my enquiry</button>
+        <p class="enquiry__promise">Free and no obligation · We reply within 24 hours</p>
+      </div>
       <p class="form-note full">By sending this form you agree to us contacting you about your enquiry. See our <a href="/privacy.html">privacy policy</a>.</p>
-      <div class="full"><button class="btn" type="submit">Send my enquiry</button></div>
       <p class="form-status" role="status"></p>
     </form>
   </div>

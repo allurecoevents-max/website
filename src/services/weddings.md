@@ -1,6 +1,7 @@
 ---
 title: Weddings
 order: 1
+enquiryType: Wedding
 cardText: Full planning, partial planning or on-the-day coordination for your perfect day.
 cardImage: /images/img-035.jpg
 cardImageAlt: Candlelit outdoor wedding reception with white florals
@@ -24,6 +25,19 @@ intro:
     We plan weddings of every size, from intimate London dinners to grand ballroom celebrations and multi-day cultural weddings, always tailored to your style and your budget.
   image: /images/img-010.jpg
   imageAlt: Ballroom reception with chandeliers and white florals
+steps:
+  eyebrow: How it works
+  heading: Your wedding, step by step
+  intro: Whichever package you choose, here's how we work together.
+  items:
+    - title: Free consultation
+      text: We talk through your vision, guest list, budget and date, and recommend the right level of help.
+    - title: Your plan
+      text: You get a clear written quote and a timeline. From then on, you always know what happens next.
+    - title: We plan together
+      text: Venues, suppliers, styling and logistics, with regular check-ins so nothing is missed.
+    - title: Your day
+      text: We run everything on the day, from setup to the last dance, so you can simply enjoy it.
 included:
   eyebrow: What's included
   heading: How we can help

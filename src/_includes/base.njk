@@ -41,23 +41,39 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="/css/styles.css">
-  {%- if url == "/" %}
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
+  {#- Structured data: helps Google understand the business, services, FAQs and articles -#}
+  {%- set business = {
     "@type": "LocalBusiness",
-    "name": {{ site.name | dump | safe }},
-    "url": {{ (site.url + "/") | dump | safe }},
-    "image": {{ (site.url + image) | dump | safe }},
-    "email": {{ site.email | dump | safe }},
+    "@id": site.url + "/#business",
+    "name": site.name,
+    "url": site.url + "/",
+    "image": site.url + "/images/img-010.jpg",
+    "logo": site.url + "/images/img-001.jpg",
+    "email": site.email,
+    "description": site.tagline,
     "address": { "@type": "PostalAddress", "addressLocality": "London", "addressCountry": "GB" },
-    "areaServed": "United Kingdom",
-    "sameAs": [{{ site.instagramUrl | dump | safe }}, {{ site.tiktokUrl | dump | safe }}]
-  }
-  </script>
+    "areaServed": ["London", "Surrey", "Kent", "Essex", "United Kingdom"],
+    "sameAs": [site.instagramUrl, site.tiktokUrl, site.hitchedUrl]
+  } -%}
+  {%- set faqItems = (home.faq.items if url == "/" else (faq.items if faq else [])) -%}
+  {%- set graph = [] -%}
+  {%- if url == "/" %}{% set _ = graph.push(business) %}{% endif -%}
+  {%- if hero and ("/journal" not in url) and url != "/" and title %}
+    {%- set _ = graph.push({ "@type": "Service", "name": title, "serviceType": title, "description": seoDescription or description, "url": site.url + url, "areaServed": "London", "provider": { "@id": site.url + "/#business", "@type": "LocalBusiness", "name": site.name } }) -%}
+  {%- endif -%}
+  {%- if "/journal-" in url %}
+    {%- set _ = graph.push({ "@type": "BlogPosting", "headline": title, "description": description, "image": site.url + (image or ""), "datePublished": page.date | isoDate, "url": site.url + url, "author": { "@type": "Organization", "name": site.name }, "publisher": { "@type": "Organization", "name": site.name, "logo": { "@type": "ImageObject", "url": site.url + "/images/img-001.jpg" } } }) -%}
+  {%- endif -%}
+  {%- if faqItems and faqItems.length %}
+    {%- set qa = [] -%}
+    {%- for f in faqItems %}{% set _ = qa.push({ "@type": "Question", "name": f.question, "acceptedAnswer": { "@type": "Answer", "text": f.answer } }) %}{% endfor -%}
+    {%- set _ = graph.push({ "@type": "FAQPage", "mainEntity": qa }) -%}
+  {%- endif -%}
+  {%- if graph.length %}
+  <script type="application/ld+json">{{ { "@context": "https://schema.org", "@graph": graph } | dump | replace("</", "<\\/") | safe }}</script>
   {%- endif %}
 </head>
-<body data-whatsapp="{{ site.whatsappNumber }}" data-whatsapp-message="{{ site.whatsappMessage }}" data-calendly="{{ site.calendlyUrl }}" data-email="{{ site.email }}">
+<body data-whatsapp="{{ site.whatsappNumber }}" data-whatsapp-message="{{ site.whatsappMessage }}" data-calendly="{{ site.calendlyUrl }}" data-email="{{ site.email }}"{% if enquiryType %} data-enquiry-type="{{ enquiryType }}"{% endif %}>
   <a class="skip-link" href="#main">Skip to content</a>
 
   {%- if site.availability %}
@@ -104,6 +120,9 @@
           <p class="footer-heading">Services</p>
           <ul>
             {%- for s in collections.servicePages %}
+            <li><a href="{{ s.url }}">{{ s.data.title }}</a></li>
+            {%- endfor %}
+            {%- for s in collections.seasonalPages %}
             <li><a href="{{ s.url }}">{{ s.data.title }}</a></li>
             {%- endfor %}
             <li><a href="/#packages">Packages</a></li>
@@ -159,5 +178,8 @@
   </a>
 
   <script src="/js/main.js"></script>
+  {%- if site.analyticsToken %}
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ site.analyticsToken }}"}'></script>
+  {%- endif %}
 </body>
 </html>

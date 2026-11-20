@@ -19,6 +19,19 @@ intro:
   heading: Every milestone deserves
   headingItalic: a moment
   text: Whether it's an intimate brunch at home or a full venue celebration, we take care of the styling, suppliers and setup so the host gets to enjoy the day too.
+steps:
+  eyebrow: How it works
+  heading: Your celebration, step by step
+  intro: Most showers and parties come together in four to eight weeks. Here's what happens.
+  items:
+    - title: A quick call
+      text: Tell us who it's for, the date, the number of guests and the feeling you want.
+    - title: The design
+      text: We send a theme, colours and styling ideas, plus a clear quote before you commit.
+    - title: Setup
+      text: We arrive before the guests to style the space, from the backdrop to the table details.
+    - title: Enjoy it
+      text: The host gets to relax and celebrate. We pack everything down afterwards.
 typesEyebrow: What we celebrate
 typesHeading: Celebrations we plan
 types:

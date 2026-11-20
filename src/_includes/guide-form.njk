@@ -1,0 +1,22 @@
+{#- "Not ready for a call?" form: visitors leave their email and get the services guide PDF straight away. -#}
+<section class="section guide-band">
+  <div class="wrap guide">
+    <div class="guide__text reveal">
+      <span class="eyebrow">Not ready for a call?</span>
+      <h2>Get our <em class="script">services guide</em></h2>
+      <p>Packages, how planning works and what's included, in one short PDF. Download it now and take your time.</p>
+    </div>
+    <form class="inline-form guide__form reveal" action="https://formspree.io/f/{{ site.formspreeId }}" method="POST" data-ajax data-success="/thank-you.html?guide=1">
+      <input type="hidden" name="_subject" value="Services guide request">
+      <input type="hidden" name="page" value="{{ page.url }}">
+      <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label class="hp" for="g-name-{{ page.fileSlug }}">First name</label>
+      <input id="g-name-{{ page.fileSlug }}" type="text" name="firstName" placeholder="First name" required autocomplete="given-name">
+      <label class="hp" for="g-email-{{ page.fileSlug }}">Email</label>
+      <input id="g-email-{{ page.fileSlug }}" type="email" name="email" placeholder="Email address" required autocomplete="email">
+      <button class="btn" type="submit">Send me the guide</button>
+      <p class="form-status" role="status"></p>
+      <p class="form-note">We'll only use your email to follow up about your plans. See our <a href="/privacy.html">privacy policy</a>.</p>
+    </form>
+  </div>
+</section>

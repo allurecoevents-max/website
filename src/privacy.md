@@ -19,7 +19,7 @@ Form submissions are delivered to us by Formspree, a form-handling service. Our 
 
 ## Cookies
 
-This website does not use advertising or analytics cookies. Our fonts are loaded from Google Fonts, which may log your IP address to deliver them. If you book a call through our Calendly booking calendar, Calendly processes your booking details and may set cookies needed for the calendar to work.
+This website does not use advertising or analytics cookies. We use Cloudflare Web Analytics to count visits and see which pages are popular. It does not use cookies or identify you personally. Our fonts are loaded from Google Fonts, which may log your IP address to deliver them. If you book a call through our Calendly booking calendar, Calendly processes your booking details and may set cookies needed for the calendar to work.
 
 ## How long we keep it
 

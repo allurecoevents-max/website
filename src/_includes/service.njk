@@ -6,6 +6,23 @@ layout: base.njk
 
 {{ split(intro) }}
 
+{% if steps and steps.items and steps.items.length %}
+<section class="section section--ink">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">{{ steps.eyebrow or "Step by step" }}</span>
+      <h2>{{ steps.heading }}</h2>
+      {% if steps.intro %}<p class="lead">{{ steps.intro }}</p>{% endif %}
+    </div>
+    <div class="steps">
+      {%- for step in steps.items %}
+      <div class="step reveal"><span class="step__num">0{{ loop.index }}</span><h3>{{ step.title }}</h3><p>{{ step.text }}</p></div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
 {% if types and types.length %}
 <section class="section section--cream">
   <div class="wrap">
@@ -36,6 +53,28 @@ layout: base.njk
 {% endif %}
 
 {{ reviewsSection(reviews) }}
+
+{% if related and related.items and related.items.length %}
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">{{ related.eyebrow or "Keep reading" }}</span>
+      <h2>{{ related.heading or "You might also like" }}</h2>
+    </div>
+    <div class="related reveal">
+      {%- for r in related.items %}
+      <a class="related__item" href="{{ r.link }}">
+        <span class="related__title">{{ r.title }}</span>
+        {% if r.text %}<span class="related__text">{{ r.text }}</span>{% endif %}
+        <span class="related__arrow" aria-hidden="true">→</span>
+      </a>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% include "guide-form.njk" %}
 
 {{ faqSection(faq) }}
 

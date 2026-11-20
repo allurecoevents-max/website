@@ -61,6 +61,7 @@ export default function (eleventyConfig) {
 
   const byOrder = (a, b) => (a.data.order ?? 99) - (b.data.order ?? 99);
   eleventyConfig.addCollection("servicePages", (api) => api.getFilteredByGlob("src/services/*.md").sort(byOrder));
+  eleventyConfig.addCollection("seasonalPages", (api) => api.getFilteredByGlob("src/seasonal/*.md").sort(byOrder));
   eleventyConfig.addCollection("areaPages", (api) => api.getFilteredByGlob("src/areas/*.md").sort(byOrder));
   eleventyConfig.addCollection("articles", (api) =>
     api.getFilteredByGlob("src/journal/*.md").sort((a, b) => b.date - a.date)
