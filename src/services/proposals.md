@@ -24,7 +24,7 @@ intro:
 
     On the day we handle the setup, timing and any surprises, and can arrange a photographer hidden nearby so the moment is captured as it happens.
 
-    And after the yes, we're still here. From the engagement party and the shower to the wedding day itself, you keep the same planner who already knows your story. Couples who plan their proposal with us get 10% off wedding planning when they come back for the big day.
+    And after the yes, we're still here. From the engagement party and the shower to the wedding day itself, you keep the same planner who already knows your story. Every proposal we plan comes with our Proposal-to-Wedding Pass: 10% off wedding planning, 10% off engagement party and shower styling, a free planning session and priority on your date, valid for 2 years.
   image: /images/img-014.jpg
   imageAlt: Candlelit rooftop dome set up for a proposal
 steps:
@@ -98,7 +98,7 @@ faq:
     - question: Can you plan a proposal outside London?
       answer: Yes. We plan proposals across the UK and abroad. Travel costs are always discussed upfront.
     - question: Can you plan our wedding too?
-      answer: We'd love to. Many of our couples keep us from the proposal all the way to the wedding day, and anyone who planned their proposal with us gets 10% off wedding planning. Mention it when you get in touch.
+      answer: We'd love to. Many of our couples keep us from the proposal all the way to the wedding day, and every proposal we plan comes with our Proposal-to-Wedding Pass, which includes 10% off wedding planning and a free one-hour planning session.
 cta:
   heading: Let's plan the perfect moment
   text: Tell us your idea and we'll reply within 24 hours.

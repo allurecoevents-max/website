@@ -65,7 +65,7 @@ permalink: /index.html
       </li>
       {%- endfor %}
     </ol>
-    {% if home.journey.offer %}<p class="journey__offer reveal">{{ home.journey.offer }}</p>{% endif %}
+    {% if home.journey.offer %}<p class="journey__offer reveal">{{ home.journey.offer }}{% if home.journey.offerLink %}<br><a class="text-link" href="{{ home.journey.offerLink }}">{{ home.journey.offerLinkText or "Find out more" }}</a>{% endif %}</p>{% endif %}
   </div>
 </section>
 {% endif %}

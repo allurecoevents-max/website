@@ -11,7 +11,7 @@ imageAlt: Candlelit proposal with a floral heart
 intro: Most couples meet a new planner for every milestone. One person helps with the proposal, someone else styles the engagement party, and by the time wedding planning starts, you're telling your story from the beginning again. There's another way, and it's the reason Allure & Co exists.
 ctaEyebrow: Planning a proposal or a wedding?
 ctaHeading: One planner for every moment
-ctaText: Tell us where you are in your story and we'll take it from there. Couples who plan their proposal with us get 10% off wedding planning.
+ctaText: Tell us where you are in your story and we'll take it from there. Every proposal we plan comes with our Proposal-to-Wedding Pass, including 10% off wedding planning.
 ctaButton: Book a free consultation
 ctaLink: /proposals.html
 ctaLinkText: Our proposal planning service
@@ -40,7 +40,7 @@ Whoever you choose, ask these questions at the first call:
 
 - **Do you plan proposals and weddings yourself, or pass one of them on?**
 - **Will I work with the same person the whole way through?**
-- **Is there anything for couples who come back for the wedding?** At Allure & Co, couples who planned their proposal with us get 10% off wedding planning.
+- **Is there anything for couples who come back for the wedding?** At Allure & Co, every proposal comes with our [Proposal-to-Wedding Pass](/proposal-to-wedding-pass.html): 10% off wedding planning, a free planning session and more.
 - **How do you keep track of what we decided at the proposal stage?**
 
 ## Where to start

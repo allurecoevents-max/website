@@ -51,4 +51,4 @@ Whatever your budget, the earlier you plan, the more you save. Four to six weeks
 
 ## Should you hire a planner?
 
-If you're short on time, nervous about keeping it secret or want a setup that's hard to do alone, a planner can help you make the most of your budget. We know which suppliers give good value, and we'll tell you honestly what's possible for the amount you have in mind. And if you'd like us for the wedding too, couples who plan their proposal with us get 10% off wedding planning.
+If you're short on time, nervous about keeping it secret or want a setup that's hard to do alone, a planner can help you make the most of your budget. We know which suppliers give good value, and we'll tell you honestly what's possible for the amount you have in mind. And if you'd like us for the wedding too, every proposal we plan comes with our [Proposal-to-Wedding Pass](/proposal-to-wedding-pass.html), including 10% off wedding planning.

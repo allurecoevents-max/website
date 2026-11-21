@@ -1,0 +1,90 @@
+---
+layout: base.njk
+permalink: /proposal-to-wedding-pass.html
+title: The Proposal-to-Wedding Pass
+seoTitle: Proposal-to-Wedding Pass | Proposal & Wedding Planner London
+description: Plan your proposal with Allure & Co Events and get the Proposal-to-Wedding Pass, with 10% off wedding planning, a free planning session and more.
+enquiryType: Proposal
+hero:
+  eyebrow: The Proposal-to-Wedding Pass
+  heading: The yes is
+  headingItalic: just the beginning
+  text: Plan your proposal with us and you'll receive the Proposal-to-Wedding Pass, our thank-you for letting us be part of your story. It follows you from the question to the "I do".
+  image: /images/img-018.jpg
+  imageAlt: Candlelit proposal with a floral heart
+  button: Plan my proposal
+intro: Most couples meet a new planner for every milestone. With the Pass, the planner who helped you ask the question is ready for everything that comes next, and you're rewarded for coming back.
+benefits:
+  - title: 10% off wedding planning
+    text: On any of our wedding packages, from on-the-day coordination to full planning.
+  - title: 10% off party and shower styling
+    text: For your engagement party and bridal shower, so the celebrations keep the same look and feel.
+  - title: A free planning session
+    text: "One hour with us after the proposal to map out your wedding: budget, dates, venues and first steps."
+  - title: Priority on your date
+    text: Found the perfect date? We'll hold it for you for 7 days while you decide.
+  - title: Valid for 2 years
+    text: No rush. Your Pass lasts 24 months from your proposal date.
+faq:
+  eyebrow: Pass FAQ
+  heading: Good to know
+  items:
+    - question: How do I get the Pass?
+      answer: Every proposal we plan comes with the Pass. We'll send it to you after the proposal, so it's there whenever you're ready to start planning.
+    - question: Can my partner use it?
+      answer: Yes. The Pass belongs to both of you as a couple, so either of you can get in touch to use it.
+    - question: What does the 10% apply to?
+      answer: It applies to our planning and styling fees. It doesn't apply to costs we pass on at cost, such as venue hire, flowers, decor hire or other suppliers.
+    - question: Can I combine it with other offers?
+      answer: The Pass can't be combined with other discounts, and it's one Pass per couple.
+cta:
+  heading: Ready to plan the question?
+  text: Tell us your idea and we'll reply within 24 hours.
+  image: /images/img-035.jpg
+---
+{%- from "macros.njk" import hero as heroSection, faq as faqSection, cta as ctaSection -%}
+{{ heroSection(hero) }}
+
+<section class="section">
+  <div class="wrap narrow center reveal">
+    <span class="eyebrow">How it works</span>
+    <h2>One planner, <em class="script">every moment</em></h2>
+    <p class="lead">{{ intro }}</p>
+  </div>
+</section>
+
+<section class="section section--cream">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">What's included</span>
+      <h2>Your Pass includes</h2>
+    </div>
+    <div class="why-us__grid pass-grid">
+      {%- for b in benefits %}
+      <div class="why-us__item reveal">
+        <h3>{{ b.title }}</h3>
+        <p>{{ b.text }}</p>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--ink">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">From the question to the "I do"</span>
+      <h2>How the Pass works</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><span class="step__num">01</span><h3>Plan your proposal</h3><p>We design and set up the moment, and keep it completely secret.</p></div>
+      <div class="step reveal"><span class="step__num">02</span><h3>Receive your Pass</h3><p>After the yes, we send your Pass to you both, valid for 2 years.</p></div>
+      <div class="step reveal"><span class="step__num">03</span><h3>Celebrate</h3><p>Use it for your engagement party or bridal shower styling.</p></div>
+      <div class="step reveal"><span class="step__num">04</span><h3>Plan the wedding</h3><p>Start with your free planning session, then save 10% on your wedding package.</p></div>
+    </div>
+  </div>
+</section>
+
+{{ faqSection(faq) }}
+
+{{ ctaSection(cta, site.calendlyUrl) }}

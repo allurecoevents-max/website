@@ -59,7 +59,9 @@
         "link": "/weddings.html"
       }
     ],
-    "offer": "Planned your proposal with us? You get 10% off wedding planning when you come back for the big day."
+    "offer": "Planned your proposal with us? Your Proposal-to-Wedding Pass gives you 10% off wedding planning, a free planning session and more.",
+    "offerLink": "/proposal-to-wedding-pass.html",
+    "offerLinkText": "See what's included"
   },
   "services": {
     "eyebrow": "What we plan",

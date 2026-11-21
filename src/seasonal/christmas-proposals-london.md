@@ -76,7 +76,7 @@ faq:
     - question: Can the proposal be at home?
       answer: Absolutely. Home proposals are some of the most personal. We'll set everything up while you're out, then you bring your partner home to the surprise.
     - question: What happens after the yes?
-      answer: Whatever you'd like, from a quiet dinner to a family celebration. And if you'd like us to plan the wedding too, couples who plan their proposal with us get 10% off wedding planning.
+      answer: Whatever you'd like, from a quiet dinner to a family celebration. And if you'd like us to plan the wedding too, your Proposal-to-Wedding Pass gives you 10% off wedding planning and a free planning session.
 cta:
   heading: Planning to ask this Christmas?
   text: Tell us your idea and we'll reply within 24 hours.
