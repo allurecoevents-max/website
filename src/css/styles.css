@@ -624,9 +624,11 @@ h3 { font-size: 1.75rem; }
 .announce a { color: var(--blush); text-decoration: none; border-bottom: 1px solid currentColor; }
 
 /* Why choose us */
-.why-us__grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border-top: var(--rule); }
+.why-us__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: var(--rule); }
 .why-us__item { padding: 26px 22px 6px 0; }
 .why-us__item + .why-us__item { padding-left: 22px; border-left: 1px solid var(--line); }
+.why-us__item:nth-child(3n+1) { padding-left: 0; border-left: 0; }
+.why-us__item:nth-child(n+4) { border-top: 1px solid var(--line); }
 .why-us__item h3 { font-size: 1.45rem; margin-bottom: .4em; }
 .why-us__item p { font-size: .95rem; color: var(--ink-soft); }
 @media (max-width: 1080px) {
@@ -715,3 +717,16 @@ h3 { font-size: 1.75rem; }
 .contact-review { margin: 32px 0 0; padding: 22px 0 0; border-top: var(--rule); }
 .contact-review blockquote { margin: 8px 0 10px; font-family: var(--serif); font-style: italic; font-size: 1.3rem; line-height: 1.4; }
 .contact-review figcaption { font-size: .78rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+
+/* Comparison table (e.g. venue coordinator vs us) */
+.compare { overflow-x: auto; border-top: var(--rule); }
+.compare table { width: 100%; border-collapse: collapse; min-width: 560px; }
+.compare th, .compare td { text-align: left; padding: 16px 18px 16px 0; border-bottom: 1px solid var(--line); vertical-align: top; font-size: .98rem; }
+.compare thead th { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-soft); font-weight: 400; }
+.compare thead th:last-child { color: var(--accent); }
+.compare tbody th { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; width: 32%; }
+.compare td:first-of-type { color: var(--ink-soft); }
+.compare td:last-child { font-weight: 400; }
+.compare__note { margin-top: 18px; font-size: .9rem; color: var(--ink-soft); }
+
+.compare tbody th { text-transform: none; letter-spacing: normal; color: var(--ink); line-height: 1.25; }

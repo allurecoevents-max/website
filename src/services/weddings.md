@@ -38,6 +38,48 @@ steps:
       text: Venues, suppliers, styling and logistics, with regular check-ins so nothing is missed.
     - title: Your day
       text: We run everything on the day, from setup to the last dance, so you can simply enjoy it.
+related:
+  eyebrow: Keep reading
+  heading: More ways we can help
+  items:
+    - title: Town hall & micro weddings
+      text: Small wedding, big feeling, for up to 40 guests.
+      link: /town-hall-micro-weddings-london.html
+    - title: Proposal-to-Wedding Pass
+      text: Planned your proposal with us? Save 10% on your wedding.
+      link: /proposal-to-wedding-pass.html
+    - title: How much does a wedding planner cost?
+      text: What London couples pay, and what you get.
+      link: /journal-wedding-planner-cost-london.html
+compare:
+  eyebrow: Already have a venue coordinator?
+  heading: Venue coordinator or wedding planner?
+  intro: Many venues include a coordinator, and they're brilliant at what they do. But their job is the venue. Ours is your whole day.
+  leftLabel: Venue coordinator
+  rightLabel: Allure & Co
+  rows:
+    - item: Who they work for
+      left: The venue
+      right: You
+    - item: Venue spaces, catering and timings
+      left: Yes
+      right: Yes, working alongside the venue team
+    - item: Your other suppliers
+      left: Usually not
+      right: Florist, photographer, music, cake, transport and more
+    - item: Your timeline for the whole day
+      left: Venue timings only
+      right: Morning to last dance, shared with every supplier
+    - item: Styling and setup
+      left: Rarely
+      right: Yes, including your personal details
+    - item: Getting ready, ceremony elsewhere, after-party
+      left: "No"
+      right: "Yes"
+    - item: When they get involved
+      left: Mainly near the day
+      right: From 8 to 12 weeks before (Final Touch) or from day one
+  note: Every venue is different, so check what yours includes. We're always happy to work alongside a venue coordinator.
 included:
   eyebrow: What's included
   heading: How we can help
@@ -88,7 +130,7 @@ faq:
     - question: When should we book a wedding planner?
       answer: Ideally 9 to 12 months before your wedding for full planning, so we can help secure the best venues and suppliers. For on-the-day coordination, 2 to 3 months ahead is usually fine.
     - question: What's the difference between full planning and on-the-day coordination?
-      answer: With full planning (Luxe) we're with you from the beginning, covering venue, suppliers, design and logistics. With on-the-day coordination (Final Touch) you plan everything, and we take over in the final weeks to run the day smoothly.
+      answer: With full planning (Luxe) we're with you from the beginning, covering venue, suppliers, design and logistics. With on-the-day coordination (Final Touch) you plan everything, and we join you 8 to 12 weeks before the day to check every detail, confirm your suppliers and run the day smoothly.
     - question: Do you plan cultural and multi-day weddings?
       answer: Yes. We love planning weddings that bring traditions together, and we'll make sure every ceremony and custom is given the care it deserves.
     - question: Do you offer payment plans?

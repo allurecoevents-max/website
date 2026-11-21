@@ -52,6 +52,29 @@ layout: base.njk
 </section>
 {% endif %}
 
+{% if compare and compare.rows and compare.rows.length %}
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">{{ compare.eyebrow or "Good to know" }}</span>
+      <h2>{{ compare.heading }}</h2>
+      {% if compare.intro %}<p class="lead">{{ compare.intro }}</p>{% endif %}
+    </div>
+    <div class="compare reveal">
+      <table>
+        <thead><tr><th scope="col"></th><th scope="col">{{ compare.leftLabel or "Venue coordinator" }}</th><th scope="col">{{ compare.rightLabel or "Allure & Co" }}</th></tr></thead>
+        <tbody>
+          {%- for r in compare.rows %}
+          <tr><th scope="row">{{ r.item }}</th><td>{{ r.left }}</td><td>{{ r.right }}</td></tr>
+          {%- endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% if compare.note %}<p class="compare__note reveal">{{ compare.note }}</p>{% endif %}
+  </div>
+</section>
+{% endif %}
+
 {{ reviewsSection(reviews) }}
 
 {% if related and related.items and related.items.length %}

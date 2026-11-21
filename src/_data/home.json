@@ -46,7 +46,7 @@
       },
       {
         "title": "The shower",
-        "text": "A bridal shower styled down to the last petal, so the bride-to-be can simply enjoy it.",
+        "text": "A shower styled down to the last petal, so the guest of honour can simply enjoy it.",
         "image": "/images/img-016.jpg",
         "imageAlt": "Bridal shower table styled with florals",
         "link": "/celebrations.html"
@@ -120,6 +120,10 @@
         "text": "Spread the cost in a way that works for you, agreed upfront in writing."
       },
       {
+        "title": "Calm, inclusive planning",
+        "text": "Every couple and every family is welcome. Tell us about access needs, quiet spaces or traditions at the start, and we'll plan around them."
+      },
+      {
         "title": "London-based, UK-wide",
         "text": "Rooted in London, planning across Surrey, Kent, Essex and beyond."
       }
@@ -137,6 +141,7 @@
         "price": "Enquire for pricing",
         "featured": false,
         "features": [
+          "Starts 8–12 weeks before your day",
           "On-the-day coordination",
           "Timeline creation",
           "Venue walkthrough",
