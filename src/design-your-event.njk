@@ -6,6 +6,12 @@ seoTitle: Design Your Event | Plan Your Proposal, Party or Wedding | Allure & Co
 description: Design your proposal, party, shower or wedding online. Choose your venue, colours, flowers, tables, chairs and extras, see it come to life with an estimated price, and send it to us.
 ---
 <link rel="stylesheet" href="/css/designer.css">
+{%- macro pic(o, w, h) -%}
+{%- if o.photo -%}{{ o.photo }}{%- elif o.img -%}https://images.unsplash.com/{{ o.img }}?w={{ w }}&h={{ h }}&fit=crop&q=70&auto=format{%- endif -%}
+{%- endmacro -%}
+{%- macro thumb(o) -%}
+{%- if o.photo or o.img %}<img class="dz__thumb" src="{{ pic(o, 360, 260) }}" alt="" loading="lazy" decoding="async" width="360" height="260">{% else %}<i class="dz__thumb dz__thumb--none"></i>{% endif -%}
+{%- endmacro -%}
 
 <section class="dz-hero">
   <div class="wrap">
@@ -18,8 +24,18 @@ description: Design your proposal, party, shower or wedding online. Choose your 
 <section class="dz" aria-label="Event designer">
   <div class="wrap dz__grid">
 
-    <aside class="dz__preview" aria-label="Your design">
-      <div class="dz__stage">
+    <div class="dz__mini" id="dz-mini" aria-hidden="true">
+      <img id="dz-mini-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="">
+      <strong id="dz-mini-total"></strong>
+      <a href="#dz-top" tabindex="-1">See my design ↑</a>
+    </div>
+    <aside class="dz__preview" id="dz-top" aria-label="Your design">
+      <div class="dz__tabs" role="group" aria-label="How to show your design">
+        <button type="button" class="dz__tab" data-view="board" aria-pressed="true">Mood board</button>
+        <button type="button" class="dz__tab" data-view="sketch" aria-pressed="false">Room sketch</button>
+      </div>
+      <div class="dz__board" id="dz-board" aria-live="polite"></div>
+      <div class="dz__stage" id="dz-stage" hidden>
         <svg id="dz-scene" viewBox="0 0 1200 720" role="img" aria-labelledby="dz-scene-title">
           <title id="dz-scene-title">An illustration of your event</title>
         </svg>
@@ -31,14 +47,15 @@ description: Design your proposal, party, shower or wedding online. Choose your 
         </div>
         <a class="btn dz__jump" href="#dz-send">Send my design</a>
       </div>
+      <p class="dz__credit">{{ designer.photoNote }}</p>
     </aside>
 
     <div class="dz__steps">
       <fieldset class="dz__step" id="dz-step-occasion">
         <legend><span class="dz__num">1</span> What's the occasion?</legend>
-        <div class="dz__options" data-group="occasion">
+        <div class="dz__options dz__options--cards" data-group="occasion">
           {%- for o in designer.occasions %}
-          <label class="dz__chip"><input type="radio" name="occasion" value="{{ o.id }}"{% if loop.first %} checked{% endif %}><span>{{ o.label }}</span></label>
+          <label class="dz__card"><input type="radio" name="occasion" value="{{ o.id }}"{% if loop.first %} checked{% endif %}><span>{{ thumb(o) }}<b>{{ o.label }}</b><small class="dz__price">planning from £{{ o.low }}</small></span></label>
           {%- endfor %}
         </div>
       </fieldset>
@@ -55,7 +72,7 @@ description: Design your proposal, party, shower or wedding online. Choose your 
         <legend><span class="dz__num">3</span> What kind of venue?</legend>
         <div class="dz__options dz__options--cards" data-group="venue">
           {%- for v in designer.venues %}
-          <label class="dz__card"><input type="radio" name="venue" value="{{ v.id }}"{% if loop.first %} checked{% endif %}><span><b>{{ v.label }}</b><small>{{ v.desc }}</small></span></label>
+          <label class="dz__card"><input type="radio" name="venue" value="{{ v.id }}"{% if loop.first %} checked{% endif %}><span>{{ thumb(v) }}<b>{{ v.label }}</b><small>{{ v.desc }}</small></span></label>
           {%- endfor %}
         </div>
       </fieldset>
@@ -73,7 +90,7 @@ description: Design your proposal, party, shower or wedding online. Choose your 
         <legend><span class="dz__num">5</span> Pick your flowers</legend>
         <div class="dz__options dz__options--cards" data-group="flower">
           {%- for f in designer.flowers %}
-          <label class="dz__card"><input type="radio" name="flower" value="{{ f.id }}"{% if loop.first %} checked{% endif %}><span><b>{{ f.label }}</b><small>{{ f.desc }}</small><small class="dz__price">from £{{ f.low }} a table</small></span></label>
+          <label class="dz__card"><input type="radio" name="flower" value="{{ f.id }}"{% if loop.first %} checked{% endif %}><span>{{ thumb(f) }}<b>{{ f.label }}</b><small>{{ f.desc }}</small><small class="dz__price">from £{{ f.low }} a table</small></span></label>
           {%- endfor %}
         </div>
         <p class="dz__sub">How much?</p>
@@ -88,7 +105,7 @@ description: Design your proposal, party, shower or wedding online. Choose your 
         <legend><span class="dz__num">6</span> Tables</legend>
         <div class="dz__options dz__options--cards" data-group="table">
           {%- for t in designer.tables %}
-          <label class="dz__card"><input type="radio" name="table" value="{{ t.id }}"{% if loop.first %} checked{% endif %}><span><b>{{ t.label }}</b><small>{{ t.desc }}</small><small class="dz__price">from £{{ t.low }} a table, with linen</small></span></label>
+          <label class="dz__card"><input type="radio" name="table" value="{{ t.id }}"{% if loop.first %} checked{% endif %}><span>{{ thumb(t) }}<b>{{ t.label }}</b><small>{{ t.desc }}</small><small class="dz__price">from £{{ t.low }} a table, with linen</small></span></label>
           {%- endfor %}
         </div>
       </fieldset>
@@ -97,7 +114,7 @@ description: Design your proposal, party, shower or wedding online. Choose your 
         <legend><span class="dz__num">7</span> Chairs</legend>
         <div class="dz__options dz__options--cards" data-group="chair">
           {%- for c in designer.chairs %}
-          <label class="dz__card"><input type="radio" name="chair" value="{{ c.id }}"{% if loop.first %} checked{% endif %}><span><b>{{ c.label }}</b><small class="dz__price">from £{{ c.low }} a chair</small></span></label>
+          <label class="dz__card"><input type="radio" name="chair" value="{{ c.id }}"{% if loop.first %} checked{% endif %}><span>{{ thumb(c) }}<b>{{ c.label }}</b><small class="dz__price">from £{{ c.low }} a chair</small></span></label>
           {%- endfor %}
         </div>
       </fieldset>
@@ -106,7 +123,7 @@ description: Design your proposal, party, shower or wedding online. Choose your 
         <legend><span class="dz__num">8</span> Backdrop</legend>
         <div class="dz__options dz__options--cards" data-group="backdrop">
           {%- for b in designer.backdrops %}
-          <label class="dz__card"><input type="radio" name="backdrop" value="{{ b.id }}"{% if loop.index == 2 %} checked{% endif %}><span><b>{{ b.label }}</b>{% if b.low %}<small class="dz__price">from £{{ b.low }}</small>{% endif %}</span></label>
+          <label class="dz__card"><input type="radio" name="backdrop" value="{{ b.id }}"{% if loop.index == 2 %} checked{% endif %}><span>{{ thumb(b) }}<b>{{ b.label }}</b>{% if b.low %}<small class="dz__price">from £{{ b.low }}</small>{% endif %}</span></label>
           {%- endfor %}
         </div>
       </fieldset>
@@ -115,7 +132,7 @@ description: Design your proposal, party, shower or wedding online. Choose your 
         <legend><span class="dz__num">9</span> Extras</legend>
         <div class="dz__options dz__options--cards" data-group="extras">
           {%- for x in designer.extras %}
-          <label class="dz__card"><input type="checkbox" name="extras" value="{{ x.id }}"><span><b>{{ x.label }}</b><small class="dz__price">from £{{ x.low }}</small></span></label>
+          <label class="dz__card"><input type="checkbox" name="extras" value="{{ x.id }}"><span>{{ thumb(x) }}<b>{{ x.label }}</b><small class="dz__price">from £{{ x.low }}</small></span></label>
           {%- endfor %}
         </div>
       </fieldset>

@@ -261,15 +261,64 @@
     return "";
   }
 
+  /* ---------- Photo mood board ---------- */
+  const picUrl = (o, w, h) => (!o ? "" : o.photo ? o.photo : o.img ? `https://images.unsplash.com/${o.img}?w=${w}&h=${h}&fit=crop&q=72&auto=format` : "");
+  const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+  function tile(o, cls, label, w, h) {
+    const f = el("figure", "mb__tile " + cls);
+    const src = picUrl(o, w, h);
+    if (src) { const img = el("img"); img.src = src; img.alt = ""; img.decoding = "async"; f.append(img); }
+    f.append(el("figcaption", "", label));
+    return f;
+  }
+  function renderBoard() {
+    const board = $("dz-board");
+    if (!board) return;
+    const occ = byId(D.occasions, state.occasion), v = byId(D.venues, state.venue), p = byId(D.palettes, state.palette);
+    const fl = byId(D.flowers, state.flower), lv = byId(D.flowerLevels, state.level), tb = byId(D.tables, state.table);
+    const ch = byId(D.chairs, state.chair), bd = byId(D.backdrops, state.backdrop);
+    const grid = el("div", "mb");
+    const hero = el("figure", "mb__venue");
+    const himg = el("img"); himg.src = picUrl(v, 1000, 640); himg.alt = ""; himg.decoding = "async"; hero.append(himg);
+    const cap = el("figcaption");
+    cap.append(el("span", "mb__eyebrow", occ.label), el("strong", "", v.label), el("span", "mb__meta", `${state.guests} guest${state.guests > 1 ? "s" : ""} · ${p.label}`));
+    const pal = el("span", "mb__pal"); p.colors.forEach((c) => { const i = el("i"); i.style.background = c; pal.append(i); });
+    cap.append(pal); hero.append(cap); grid.append(hero);
+    grid.append(bd.id === "none" ? tile(occ, "mb__a", occ.label, 520, 420) : tile(bd, "mb__a", bd.label, 520, 420));
+    grid.append(tile(fl, "mb__b", `${lv.label} ${fl.label.toLowerCase()}`, 420, 420));
+    grid.append(tile(tb, "mb__c", tb.label, 420, 320));
+    grid.append(tile(ch, "mb__d", ch.label, 420, 320));
+    const sw = el("figure", "mb__tile mb__e mb__swatch");
+    const bands = el("div", "mb__bands"); p.colors.forEach((c) => { const i = el("i"); i.style.background = c; bands.append(i); });
+    sw.append(bands, el("figcaption", "", p.label)); grid.append(sw);
+    const extras = el("ul", "mb__extras");
+    state.extras.forEach((id) => { const x = byId(D.extras, id); const li = el("li"); const src = picUrl(x, 160, 160); if (src) { const img = el("img"); img.src = src; img.alt = ""; img.decoding = "async"; li.append(img); } li.append(el("span", "", x.label)); extras.append(li); });
+    board.replaceChildren(grid);
+    if (state.extras.length) board.append(extras);
+  }
+  let view = "board";
+  try { view = localStorage.getItem(STORE + "View") || "board"; } catch (e) {}
+  function setView(v) {
+    view = v;
+    $("dz-board").hidden = v !== "board";
+    $("dz-stage").hidden = v !== "sketch";
+    document.querySelectorAll(".dz__tab").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.view === v)));
+    try { localStorage.setItem(STORE + "View", v); } catch (e) {}
+  }
+  document.querySelectorAll(".dz__tab").forEach((b) => b.addEventListener("click", () => setView(b.dataset.view)));
+  setView(view);
+
   /* ---------- Summary ---------- */
   function update() {
     syncInputs();
     const occ = byId(D.occasions, state.occasion);
     $("dz-guests-out").textContent = `${state.guests} guest${state.guests > 1 ? "s" : ""}`;
     draw();
+    renderBoard();
     const e = estimate();
     const range = `${money(e.low)} to ${money(e.high)}`;
     $("dz-total").textContent = range;
+    if ($("dz-mini-total")) { $("dz-mini-total").textContent = range; $("dz-mini-img").src = picUrl(byId(D.venues, state.venue), 120, 120); }
     $("dz-total-2").textContent = range;
     const list = $("dz-lines");
     list.innerHTML = "";
@@ -295,6 +344,15 @@
     const done = (t) => (msg.textContent = t);
     try { navigator.clipboard.writeText(url).then(() => done("Link copied. Send it to your partner or a friend."), () => done(url)); } catch (e) { done(url); }
   });
+
+  // Phones: show a slim price bar once the design preview scrolls out of view
+  const mini = $("dz-mini"), preview = document.querySelector(".dz__preview");
+  const header = document.querySelector(".site-header");
+  const setHeader = () => header && document.documentElement.style.setProperty("--dz-header", header.offsetHeight + "px");
+  setHeader(); window.addEventListener("resize", setHeader);
+  if (mini && preview && "IntersectionObserver" in window) {
+    new IntersectionObserver(([e]) => mini.classList.toggle("is-on", !e.isIntersecting && e.boundingClientRect.top < 0), { threshold: 0 }).observe(preview);
+  }
 
   update();
 })();
