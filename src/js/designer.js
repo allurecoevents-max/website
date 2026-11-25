@@ -271,9 +271,63 @@
     f.append(el("figcaption", "", label));
     return f;
   }
+  /* ---------- "Create my event": realistic AI photo ---------- */
+  const designKey = () => JSON.stringify({ ...state, picture: undefined, picFor: undefined });
+  const LOADING = ["Setting the tables…", "Arranging the flowers…", "Lighting the candles…", "Hanging the backdrop…", "Adding the finishing touches…"];
+  let busy = false;
+  function renderEvent() {
+    const img = $("dz-event-img"), cap = $("dz-event-cap"), note = $("dz-event-note"), btn = $("dz-create");
+    if (!img) return;
+    const v = byId(D.venues, state.venue), occ = byId(D.occasions, state.occasion);
+    const has = !!state.picture, fresh = has && state.picFor === designKey();
+    const src = has ? state.picture : picUrl(v, 1100, 825);
+    if (img.getAttribute("src") !== src) img.src = src;
+    img.alt = has ? `A preview of your ${occ.label.toLowerCase()}` : `${v.label}`;
+    cap.textContent = has ? (fresh ? "Your event" : "Your last design") : `${occ.label} · ${v.label}`;
+    btn.textContent = has ? "Create it again ✨" : "Create my event ✨";
+    btn.disabled = busy;
+    if (!busy) note.textContent = !has ? "Make your choices, then press Create to see your event come to life." : fresh ? "An AI preview of your design. Your real event is styled by us, just for you." : "You've changed your choices. Press Create to update the picture.";
+    $("dz-picture").value = !has ? "Not created" : state.picture.startsWith("data:") ? (fresh ? "Created on the website for this design" : "Created for an earlier version of this design") : state.picture;
+  }
+  async function createEvent() {
+    if (busy) return;
+    const today = new Date().toISOString().slice(0, 10);
+    let used = { d: today, n: 0 };
+    try { used = JSON.parse(localStorage.getItem(STORE + "Uses")) || used; } catch (e) {}
+    if (used.d !== today) used = { d: today, n: 0 };
+    if (used.n >= 6) { $("dz-event-note").textContent = "You've created 6 pictures today. Send us your design and we'll take it from here."; return; }
+    busy = true; renderEvent();
+    const load = $("dz-loading"), txt = $("dz-loading-text"), note = $("dz-event-note");
+    load.hidden = false; let i = 0; txt.textContent = LOADING[0];
+    const tick = setInterval(() => (txt.textContent = LOADING[++i % LOADING.length]), 2500);
+    const key = designKey();
+    const design = { occasion: state.occasion, guests: state.guests, venue: state.venue, palette: state.palette, flower: state.flower, level: state.level, table: state.table, chair: state.chair, backdrop: state.backdrop, extras: state.extras };
+    try {
+      const r = await fetch("/api/create-event", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(design) });
+      if (r.status === 503) throw new Error("setup");
+      if (r.status === 429) throw new Error("busy");
+      if (!r.ok) throw new Error("start");
+      const q = await r.json();
+      const url = q && q.done && q.url;
+      if (!url) throw new Error("empty");
+      await new Promise((res, rej) => { const pre = new Image(); pre.onload = res; pre.onerror = rej; pre.src = url; });
+      state.picture = url; state.picFor = key;
+      used.n++; try { localStorage.setItem(STORE + "Uses", JSON.stringify(used)); } catch (e) {}
+      busy = false; update();
+    } catch (e) {
+      busy = false; renderEvent();
+      note.textContent = e.message === "setup"
+        ? "Event pictures are being set up. Send us your design below and we'll create it for you."
+        : e.message === "busy"
+          ? "Lots of people are creating events right now. Please try again in a few minutes."
+          : "Sorry, we couldn't create the picture just now. Please try again in a moment.";
+    } finally { clearInterval(tick); load.hidden = true; }
+  }
+  if ($("dz-create")) $("dz-create").addEventListener("click", createEvent);
+
   function renderBoard() {
     const board = $("dz-board");
-    if (!board) return;
+    if (!board || board.classList.contains("dz__event")) return;
     const occ = byId(D.occasions, state.occasion), v = byId(D.venues, state.venue), p = byId(D.palettes, state.palette);
     const fl = byId(D.flowers, state.flower), lv = byId(D.flowerLevels, state.level), tb = byId(D.tables, state.table);
     const ch = byId(D.chairs, state.chair), bd = byId(D.backdrops, state.backdrop);
@@ -314,11 +368,11 @@
     const occ = byId(D.occasions, state.occasion);
     $("dz-guests-out").textContent = `${state.guests} guest${state.guests > 1 ? "s" : ""}`;
     draw();
-    renderBoard();
+    renderEvent();
     const e = estimate();
     const range = `${money(e.low)} to ${money(e.high)}`;
     $("dz-total").textContent = range;
-    if ($("dz-mini-total")) { $("dz-mini-total").textContent = range; $("dz-mini-img").src = picUrl(byId(D.venues, state.venue), 120, 120); }
+    if ($("dz-mini-total")) { $("dz-mini-total").textContent = range; $("dz-mini-img").src = state.picture || picUrl(byId(D.venues, state.venue), 120, 120); }
     $("dz-total-2").textContent = range;
     const list = $("dz-lines");
     list.innerHTML = "";
@@ -337,7 +391,7 @@
     try { localStorage.setItem(STORE, JSON.stringify(state)); } catch (err) {}
   }
 
-  const link = () => location.origin + location.pathname + "?d=" + btoa(unescape(encodeURIComponent(JSON.stringify(state))));
+  const link = () => location.origin + location.pathname + "?d=" + btoa(unescape(encodeURIComponent(JSON.stringify({ ...state, picture: undefined, picFor: undefined }))));
   const shareBtn = $("dz-share");
   if (shareBtn) shareBtn.addEventListener("click", () => {
     const url = link(), msg = $("dz-share-msg");

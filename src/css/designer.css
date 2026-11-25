@@ -16,7 +16,9 @@
 .dz__jump.btn { background: var(--ivory); color: var(--ink); border-color: var(--ivory); padding: .8rem 1.3rem; }
 
 .dz__step { border: 1px solid var(--line); background: var(--white); padding: 22px 22px 24px; margin: 0; min-width: 0; }
-.dz__step legend, .dz__h { font-family: var(--serif); font-size: 1.55rem; line-height: 1.2; padding: 0 8px; margin: 0 0 14px -8px; display: flex; align-items: center; gap: 12px; }
+.dz__step legend, .dz__h { font-family: var(--serif); font-size: 1.55rem; line-height: 1.2; padding: 0; margin: 0 0 18px; display: flex; align-items: center; gap: 12px; }
+.dz__step legend { float: left; width: 100%; }
+.dz__step legend + * { clear: both; }
 .dz__h { padding: 0; margin: 0 0 16px; }
 .dz__num { flex: none; width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--accent); color: var(--accent); font-family: var(--sans); font-size: .9rem; display: grid; place-items: center; }
 .dz__sub { margin: 18px 0 10px; font-size: .78rem; letter-spacing: .22em; text-transform: uppercase; color: var(--accent); }
@@ -79,6 +81,22 @@
 .mb__extras img { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; }
 .dz__credit { margin: 8px 0 0; font-size: .75rem; color: var(--ink-soft); }
 
+/* "Your event" picture */
+.dz__event { background: var(--white); border: 1px solid var(--line); }
+.dz__eventimg { position: relative; aspect-ratio: 4 / 3; background: var(--cream); overflow: hidden; }
+.dz__eventimg img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: mbIn .6s ease both; }
+.dz__eventcap { position: absolute; left: 14px; top: 14px; padding: 6px 12px; background: rgba(29, 25, 22, .72); color: var(--ivory); font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; }
+.dz__loading { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 14px; background: rgba(29, 25, 22, .62); color: var(--ivory); text-align: center; }
+.dz__loading[hidden], .dz__board[hidden], .dz__stage[hidden] { display: none; }
+.dz__loading p { margin: 0; font-family: var(--serif); font-size: 1.4rem; }
+.dz__spinner { width: 44px; height: 44px; border-radius: 50%; border: 2px solid rgba(246, 241, 234, .25); border-top-color: var(--blush); animation: dzSpin 1s linear infinite; }
+@keyframes dzSpin { to { transform: rotate(360deg); } }
+.dz__eventbar { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding: 14px 16px; }
+.dz__create.btn { background: var(--blush); border-color: var(--blush); color: var(--ink); }
+.dz__create.btn:hover { background: var(--ink); border-color: var(--ink); color: var(--ivory); }
+.dz__create:disabled { opacity: .6; cursor: wait; }
+.dz__eventnote { margin: 0; flex: 1; min-width: 200px; font-size: .88rem; color: var(--ink-soft); line-height: 1.45; }
+
 /* Photos on option cards */
 .dz__thumb { display: block; width: calc(100% + 28px); max-width: none; margin: -12px -14px 8px; aspect-ratio: 36 / 26; height: auto; object-fit: cover; background: var(--cream); }
 .dz__thumb--none { background: repeating-linear-gradient(45deg, var(--cream), var(--cream) 8px, var(--ivory) 8px, var(--ivory) 16px); }
@@ -110,4 +128,4 @@
   .dz__lines li { flex-direction: column; gap: 2px; }
   .dz__lines li span:last-child { text-align: left; }
 }
-@media (prefers-reduced-motion: reduce) { .dz__chip span, .dz__card > span, .dz__mini { transition: none; } .mb img { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .dz__chip span, .dz__card > span, .dz__mini { transition: none; } .mb img, .dz__eventimg img { animation: none; } .dz__spinner { animation-duration: 3s; } }

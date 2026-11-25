@@ -31,10 +31,23 @@ description: Design your proposal, party, shower or wedding online. Choose your 
     </div>
     <aside class="dz__preview" id="dz-top" aria-label="Your design">
       <div class="dz__tabs" role="group" aria-label="How to show your design">
-        <button type="button" class="dz__tab" data-view="board" aria-pressed="true">Mood board</button>
+        <button type="button" class="dz__tab" data-view="board" aria-pressed="true">Your event</button>
         <button type="button" class="dz__tab" data-view="sketch" aria-pressed="false">Room sketch</button>
       </div>
-      <div class="dz__board" id="dz-board" aria-live="polite"></div>
+      <div class="dz__board dz__event" id="dz-board">
+        <div class="dz__eventimg">
+          <img id="dz-event-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="">
+          <div class="dz__eventcap" id="dz-event-cap"></div>
+          <div class="dz__loading" id="dz-loading" hidden>
+            <span class="dz__spinner" aria-hidden="true"></span>
+            <p id="dz-loading-text" role="status">Setting the tables…</p>
+          </div>
+        </div>
+        <div class="dz__eventbar">
+          <button type="button" class="btn dz__create" id="dz-create">Create my event ✨</button>
+          <p class="dz__eventnote" id="dz-event-note" role="status"></p>
+        </div>
+      </div>
       <div class="dz__stage" id="dz-stage" hidden>
         <svg id="dz-scene" viewBox="0 0 1200 720" role="img" aria-labelledby="dz-scene-title">
           <title id="dz-scene-title">An illustration of your event</title>
@@ -153,6 +166,7 @@ description: Design your proposal, party, shower or wedding online. Choose your 
           <input type="hidden" name="_subject" id="dz-subject" value="New event design">
           <input type="hidden" name="Design" id="dz-design">
           <input type="hidden" name="Estimate" id="dz-estimate">
+          <input type="hidden" name="Picture of their event" id="dz-picture">
           <input type="hidden" name="Came from" value="Design your event page">
           <div class="field">
             <label for="dz-name">Your name</label>

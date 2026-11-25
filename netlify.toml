@@ -5,6 +5,11 @@
 [build.environment]
   NODE_VERSION = "22"
 
+# Server code for "Create my event" (netlify/functions/create-event.mjs)
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
 # Security settings sent with every page.
 # The Content-Security-Policy lists the only outside services the site may use:
 # Google Fonts, Formspree (forms), Calendly (booking calendar) and
