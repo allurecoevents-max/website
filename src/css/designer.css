@@ -1,0 +1,66 @@
+/* Design your event page. Uses the main site tokens from styles.css. */
+.dz-hero { padding: clamp(48px, 7vw, 88px) 0 24px; }
+.dz-hero h1 { margin-bottom: .3em; }
+.dz-hero .lead { max-width: 62ch; }
+
+.dz { padding: 0 0 clamp(64px, 8vw, 110px); }
+.dz__grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+.dz__preview { position: sticky; top: 90px; order: 2; min-width: 0; }
+.dz__steps { order: 1; display: grid; gap: 22px; min-width: 0; }
+
+.dz__stage { background: var(--cream); border: 1px solid var(--line); box-shadow: var(--shadow); overflow: hidden; }
+.dz__stage svg { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 720; }
+.dz__estimate { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; background: var(--ink); color: var(--ivory); padding: 16px 20px; }
+.dz__label { display: block; font-size: .72rem; letter-spacing: .24em; text-transform: uppercase; color: var(--blush); }
+.dz__total { font-family: var(--serif); font-weight: 400; font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.2; font-variant-numeric: tabular-nums; }
+.dz__jump.btn { background: var(--ivory); color: var(--ink); border-color: var(--ivory); padding: .8rem 1.3rem; }
+
+.dz__step { border: 1px solid var(--line); background: var(--white); padding: 22px 22px 24px; margin: 0; min-width: 0; }
+.dz__step legend, .dz__h { font-family: var(--serif); font-size: 1.55rem; line-height: 1.2; padding: 0 8px; margin: 0 0 14px -8px; display: flex; align-items: center; gap: 12px; }
+.dz__h { padding: 0; margin: 0 0 16px; }
+.dz__num { flex: none; width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--accent); color: var(--accent); font-family: var(--sans); font-size: .9rem; display: grid; place-items: center; }
+.dz__sub { margin: 18px 0 10px; font-size: .78rem; letter-spacing: .22em; text-transform: uppercase; color: var(--accent); }
+
+.dz__options { display: flex; flex-wrap: wrap; gap: 10px; }
+.dz__options--cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+.dz__chip, .dz__card { position: relative; cursor: pointer; }
+.dz__chip input, .dz__card input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.dz__chip span { display: inline-block; padding: .6rem 1.1rem; border: 1px solid var(--line); background: var(--ivory); font-size: .95rem; transition: background .15s, border-color .15s; }
+.dz__card > span { display: flex; flex-direction: column; gap: 3px; height: 100%; padding: 12px 14px; border: 1px solid var(--line); background: var(--ivory); transition: background .15s, border-color .15s; }
+.dz__card b { font-weight: 400; color: var(--ink); line-height: 1.3; }
+.dz__card small { font-size: .82rem; color: var(--ink-soft); line-height: 1.4; }
+.dz__card small.dz__price { color: var(--accent); }
+.dz__chip input:checked + span, .dz__card input:checked + span { background: var(--blush); border-color: var(--ink); }
+.dz__chip input:focus-visible + span, .dz__card input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 2px; }
+.dz__chip:hover span, .dz__card:hover > span { border-color: var(--accent); }
+.dz__swatch { display: flex; height: 26px; margin-bottom: 6px; border: 1px solid var(--line); }
+.dz__swatch i { flex: 1; }
+
+.dz__guests { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.dz__guests input { flex: 1; min-width: 180px; accent-color: var(--accent); }
+.dz__guests output { font-family: var(--serif); font-size: 1.5rem; min-width: 6.5em; font-variant-numeric: tabular-nums; }
+
+.dz__lines { list-style: none; margin: 0 0 14px; padding: 0; }
+.dz__lines li { display: flex; justify-content: space-between; gap: 16px; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: .95rem; }
+.dz__lines li span:last-child { text-align: right; color: var(--ink-soft); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.dz__range { font-family: var(--serif); font-size: 1.5rem; margin: 6px 0 8px; }
+.dz__note { font-size: .9rem; color: var(--ink-soft); }
+.dz__form { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--line); }
+.dz__form h3 { margin-bottom: .2em; }
+.dz__consent { display: flex; gap: 10px; align-items: flex-start; font-size: .9rem; color: var(--ink-soft); }
+.dz__consent input { margin-top: .35em; }
+
+@media (max-width: 900px) {
+  .dz__grid { grid-template-columns: minmax(0, 1fr); }
+  .dz__preview { order: 0; top: var(--dz-header, 64px); z-index: 20; margin-inline: calc(var(--gutter) * -1); }
+  .dz__stage { border-inline: 0; }
+  .dz__estimate { padding: 10px 16px; }
+  .dz__jump.btn { padding: .6rem 1rem; font-size: .7rem; }
+  .dz__step { padding: 18px 16px 20px; }
+}
+@media (max-width: 560px) {
+  .dz__options--cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dz__lines li { flex-direction: column; gap: 2px; }
+  .dz__lines li span:last-child { text-align: left; }
+}
+@media (prefers-reduced-motion: reduce) { .dz__chip span, .dz__card > span { transition: none; } }

@@ -1,0 +1,75 @@
+{
+  "title": "Design your event",
+  "intro": "Choose your occasion, venue, colours, flowers, tables, chairs and extras. Watch your event come to life, see an estimated price range, then send your design to us for a free consultation.",
+  "estimateNote": "This is an estimate to help you plan. It includes our planning and styling fee and the hire of everything you've chosen. Venue hire, food and drink are not included. Your exact quote comes after a free call.",
+  "occasions": [
+    { "id": "proposal", "label": "Proposal", "low": 350, "high": 600, "minGuests": 2, "maxGuests": 30, "defaultGuests": 2, "seats": 2 },
+    { "id": "engagement", "label": "Engagement party", "low": 300, "high": 550, "minGuests": 10, "maxGuests": 150, "defaultGuests": 40, "seats": 8 },
+    { "id": "bridal-shower", "label": "Bridal shower", "low": 300, "high": 500, "minGuests": 6, "maxGuests": 60, "defaultGuests": 20, "seats": 8 },
+    { "id": "baby-shower", "label": "Baby shower", "low": 300, "high": 500, "minGuests": 6, "maxGuests": 60, "defaultGuests": 20, "seats": 8 },
+    { "id": "birthday", "label": "Birthday or celebration", "low": 300, "high": 550, "minGuests": 6, "maxGuests": 150, "defaultGuests": 30, "seats": 8 },
+    { "id": "wedding", "label": "Wedding", "low": 850, "high": 1950, "minGuests": 10, "maxGuests": 200, "defaultGuests": 80, "seats": 10 }
+  ],
+  "venues": [
+    { "id": "ballroom", "label": "Hotel ballroom", "desc": "Chandeliers, drapes and grand ceilings" },
+    { "id": "garden", "label": "Garden or marquee", "desc": "Outdoors, greenery and natural light" },
+    { "id": "dining", "label": "Private dining room", "desc": "Intimate, warm and elegant" },
+    { "id": "rooftop", "label": "Rooftop", "desc": "City lights and open sky" },
+    { "id": "loft", "label": "Loft or restaurant", "desc": "Exposed brick and pendant lights" },
+    { "id": "home", "label": "At home", "desc": "Your own space, transformed" }
+  ],
+  "palettes": [
+    { "id": "ivory-gold", "label": "Ivory & gold", "colors": ["#fbf7ef", "#f1e4cf", "#c9a45c", "#8f9a7a"] },
+    { "id": "blush-sage", "label": "Blush & sage", "colors": ["#f2d4cc", "#e7b9ad", "#fbf4ef", "#9aab8c"] },
+    { "id": "burgundy-cream", "label": "Burgundy & cream", "colors": ["#7a2232", "#a8485a", "#f5ecdf", "#5f6f52"] },
+    { "id": "dusty-blue", "label": "Dusty blue & white", "colors": ["#ffffff", "#a9bacb", "#7f95ab", "#8fa08c"] },
+    { "id": "butter-sage", "label": "Butter yellow & sage", "colors": ["#f6e7a8", "#fffaf0", "#e6c96f", "#8e9f7f"] },
+    { "id": "red-roses", "label": "Classic red & white", "colors": ["#b3192e", "#ffffff", "#e6c3c3", "#53664a"] },
+    { "id": "black-white", "label": "Black & white", "colors": ["#ffffff", "#f2f0ec", "#1d1916", "#6c7a64"] },
+    { "id": "lilac-silver", "label": "Lilac & silver", "colors": ["#cdb8dc", "#ece3f2", "#b9bfc7", "#8b9a87"] }
+  ],
+  "flowers": [
+    { "id": "roses", "label": "Roses", "desc": "Romantic and timeless", "low": 45, "high": 85 },
+    { "id": "peonies", "label": "Peonies", "desc": "Full, soft and luxurious (seasonal)", "low": 70, "high": 130 },
+    { "id": "hydrangea", "label": "Hydrangea & roses", "desc": "Lush and full", "low": 50, "high": 95 },
+    { "id": "wild", "label": "Wildflower & meadow", "desc": "Relaxed and natural", "low": 35, "high": 70 },
+    { "id": "orchids", "label": "Orchids", "desc": "Sleek and modern", "low": 80, "high": 150 },
+    { "id": "dried", "label": "Pampas & dried flowers", "desc": "Boho and long-lasting", "low": 40, "high": 75 }
+  ],
+  "flowerLevels": [
+    { "id": "minimal", "label": "Minimal", "desc": "A small arrangement on each table", "mult": 0.6 },
+    { "id": "lush", "label": "Lush", "desc": "A full centrepiece on each table", "mult": 1 },
+    { "id": "statement", "label": "Statement", "desc": "Tall, dramatic centrepieces", "mult": 1.8 }
+  ],
+  "tables": [
+    { "id": "round", "label": "Round tables", "desc": "Sociable, classic", "low": 18, "high": 35 },
+    { "id": "long", "label": "Long banquet tables", "desc": "Dinner-party feel", "low": 25, "high": 45 },
+    { "id": "lounge", "label": "Lounge & cocktail", "desc": "Sofas, poseur tables, mingling", "low": 30, "high": 60 }
+  ],
+  "chairs": [
+    { "id": "chiavari", "label": "Gold Chiavari", "low": 4, "high": 7 },
+    { "id": "ghost", "label": "Clear ghost chairs", "low": 5, "high": 8 },
+    { "id": "crossback", "label": "Wooden crossback", "low": 6, "high": 9 },
+    { "id": "louis", "label": "Cream Louis chairs", "low": 7, "high": 11 },
+    { "id": "velvet", "label": "Velvet dining chairs", "low": 8, "high": 13 }
+  ],
+  "backdrops": [
+    { "id": "none", "label": "No backdrop", "low": 0, "high": 0 },
+    { "id": "flowerwall", "label": "Flower wall", "low": 350, "high": 650 },
+    { "id": "heart", "label": "Rose heart", "low": 450, "high": 850 },
+    { "id": "arch", "label": "Round arch with drapes", "low": 250, "high": 450 },
+    { "id": "balloons", "label": "Balloon garland", "low": 150, "high": 350 }
+  ],
+  "extras": [
+    { "id": "candles", "label": "Candles everywhere", "low": 80, "high": 220 },
+    { "id": "neon", "label": "Neon sign", "low": 120, "high": 250 },
+    { "id": "lights", "label": "Fairy-light canopy", "low": 450, "high": 900 },
+    { "id": "photobooth", "label": "Photo booth", "low": 350, "high": 650 },
+    { "id": "booth360", "label": "360 video booth", "low": 400, "high": 750 },
+    { "id": "dessert", "label": "Dessert table styling", "low": 200, "high": 450 },
+    { "id": "dancefloor", "label": "Dance floor", "low": 400, "high": 900 },
+    { "id": "welcome", "label": "Welcome sign", "low": 60, "high": 120 },
+    { "id": "photographer", "label": "Photographer", "low": 300, "high": 900 },
+    { "id": "music", "label": "Live musician", "low": 250, "high": 600 }
+  ]
+}

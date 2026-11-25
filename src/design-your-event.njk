@@ -1,0 +1,171 @@
+---
+layout: base.njk
+permalink: /design-your-event.html
+title: Design your event
+seoTitle: Design Your Event | Plan Your Proposal, Party or Wedding | Allure & Co Events
+description: Design your proposal, party, shower or wedding online. Choose your venue, colours, flowers, tables, chairs and extras, see it come to life with an estimated price, and send it to us.
+---
+<link rel="stylesheet" href="/css/designer.css">
+
+<section class="dz-hero">
+  <div class="wrap">
+    <span class="eyebrow">Event designer</span>
+    <h1>Design your <em class="script">event</em></h1>
+    <p class="lead">{{ designer.intro }}</p>
+  </div>
+</section>
+
+<section class="dz" aria-label="Event designer">
+  <div class="wrap dz__grid">
+
+    <aside class="dz__preview" aria-label="Your design">
+      <div class="dz__stage">
+        <svg id="dz-scene" viewBox="0 0 1200 720" role="img" aria-labelledby="dz-scene-title">
+          <title id="dz-scene-title">An illustration of your event</title>
+        </svg>
+      </div>
+      <div class="dz__estimate">
+        <div>
+          <span class="dz__label">Estimated price</span>
+          <strong id="dz-total" class="dz__total">£0</strong>
+        </div>
+        <a class="btn dz__jump" href="#dz-send">Send my design</a>
+      </div>
+    </aside>
+
+    <div class="dz__steps">
+      <fieldset class="dz__step" id="dz-step-occasion">
+        <legend><span class="dz__num">1</span> What's the occasion?</legend>
+        <div class="dz__options" data-group="occasion">
+          {%- for o in designer.occasions %}
+          <label class="dz__chip"><input type="radio" name="occasion" value="{{ o.id }}"{% if loop.first %} checked{% endif %}><span>{{ o.label }}</span></label>
+          {%- endfor %}
+        </div>
+      </fieldset>
+
+      <fieldset class="dz__step">
+        <legend><span class="dz__num">2</span> How many guests?</legend>
+        <div class="dz__guests">
+          <input type="range" id="dz-guests" min="2" max="200" value="2" aria-describedby="dz-guests-out">
+          <output id="dz-guests-out" for="dz-guests">2 guests</output>
+        </div>
+      </fieldset>
+
+      <fieldset class="dz__step">
+        <legend><span class="dz__num">3</span> What kind of venue?</legend>
+        <div class="dz__options dz__options--cards" data-group="venue">
+          {%- for v in designer.venues %}
+          <label class="dz__card"><input type="radio" name="venue" value="{{ v.id }}"{% if loop.first %} checked{% endif %}><span><b>{{ v.label }}</b><small>{{ v.desc }}</small></span></label>
+          {%- endfor %}
+        </div>
+      </fieldset>
+
+      <fieldset class="dz__step">
+        <legend><span class="dz__num">4</span> Choose your colours</legend>
+        <div class="dz__options dz__options--cards" data-group="palette">
+          {%- for p in designer.palettes %}
+          <label class="dz__card dz__palette"><input type="radio" name="palette" value="{{ p.id }}"{% if loop.index == 2 %} checked{% endif %}><span><i class="dz__swatch">{% for c in p.colors %}<i style="background:{{ c }}"></i>{% endfor %}</i><b>{{ p.label }}</b></span></label>
+          {%- endfor %}
+        </div>
+      </fieldset>
+
+      <fieldset class="dz__step">
+        <legend><span class="dz__num">5</span> Pick your flowers</legend>
+        <div class="dz__options dz__options--cards" data-group="flower">
+          {%- for f in designer.flowers %}
+          <label class="dz__card"><input type="radio" name="flower" value="{{ f.id }}"{% if loop.first %} checked{% endif %}><span><b>{{ f.label }}</b><small>{{ f.desc }}</small><small class="dz__price">from £{{ f.low }} a table</small></span></label>
+          {%- endfor %}
+        </div>
+        <p class="dz__sub">How much?</p>
+        <div class="dz__options" data-group="level">
+          {%- for l in designer.flowerLevels %}
+          <label class="dz__chip"><input type="radio" name="level" value="{{ l.id }}"{% if l.id == "lush" %} checked{% endif %}><span>{{ l.label }}</span></label>
+          {%- endfor %}
+        </div>
+      </fieldset>
+
+      <fieldset class="dz__step">
+        <legend><span class="dz__num">6</span> Tables</legend>
+        <div class="dz__options dz__options--cards" data-group="table">
+          {%- for t in designer.tables %}
+          <label class="dz__card"><input type="radio" name="table" value="{{ t.id }}"{% if loop.first %} checked{% endif %}><span><b>{{ t.label }}</b><small>{{ t.desc }}</small><small class="dz__price">from £{{ t.low }} a table, with linen</small></span></label>
+          {%- endfor %}
+        </div>
+      </fieldset>
+
+      <fieldset class="dz__step">
+        <legend><span class="dz__num">7</span> Chairs</legend>
+        <div class="dz__options dz__options--cards" data-group="chair">
+          {%- for c in designer.chairs %}
+          <label class="dz__card"><input type="radio" name="chair" value="{{ c.id }}"{% if loop.first %} checked{% endif %}><span><b>{{ c.label }}</b><small class="dz__price">from £{{ c.low }} a chair</small></span></label>
+          {%- endfor %}
+        </div>
+      </fieldset>
+
+      <fieldset class="dz__step">
+        <legend><span class="dz__num">8</span> Backdrop</legend>
+        <div class="dz__options dz__options--cards" data-group="backdrop">
+          {%- for b in designer.backdrops %}
+          <label class="dz__card"><input type="radio" name="backdrop" value="{{ b.id }}"{% if loop.index == 2 %} checked{% endif %}><span><b>{{ b.label }}</b>{% if b.low %}<small class="dz__price">from £{{ b.low }}</small>{% endif %}</span></label>
+          {%- endfor %}
+        </div>
+      </fieldset>
+
+      <fieldset class="dz__step">
+        <legend><span class="dz__num">9</span> Extras</legend>
+        <div class="dz__options dz__options--cards" data-group="extras">
+          {%- for x in designer.extras %}
+          <label class="dz__card"><input type="checkbox" name="extras" value="{{ x.id }}"><span><b>{{ x.label }}</b><small class="dz__price">from £{{ x.low }}</small></span></label>
+          {%- endfor %}
+        </div>
+      </fieldset>
+
+      <div class="dz__step dz__summary" id="dz-send">
+        <h2 class="dz__h"><span class="dz__num">10</span> Your design</h2>
+        <ul id="dz-lines" class="dz__lines"></ul>
+        <p class="dz__range">Estimated total: <strong id="dz-total-2">£0</strong></p>
+        <p class="dz__note">{{ designer.estimateNote }}</p>
+        <p class="dz__note">Want to change something? Scroll up and change any choice. Your picture and price update straight away.</p>
+        <p><button type="button" class="btn btn--ghost" id="dz-share">Copy a link to my design</button> <span id="dz-share-msg" class="dz__note" role="status"></span></p>
+
+        <form class="form dz__form" action="https://formspree.io/f/{{ site.formspreeId }}" method="POST" data-ajax data-success="/thank-you.html?design=1">
+          <div class="full">
+            <h3>Send your design to Allure &amp; Co</h3>
+            <p>We'll look at your design and come back to you within 24 hours to arrange a free consultation.</p>
+          </div>
+          <input type="hidden" name="_subject" id="dz-subject" value="New event design">
+          <input type="hidden" name="Design" id="dz-design">
+          <input type="hidden" name="Estimate" id="dz-estimate">
+          <input type="hidden" name="Came from" value="Design your event page">
+          <div class="field">
+            <label for="dz-name">Your name</label>
+            <input id="dz-name" name="Name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="dz-email">Email</label>
+            <input id="dz-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="dz-phone">Phone (optional)</label>
+            <input id="dz-phone" name="Phone" type="tel" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="dz-date">Date (if you know it)</label>
+            <input id="dz-date" name="Date" type="date">
+          </div>
+          <div class="field full">
+            <label for="dz-notes">Anything else we should know?</label>
+            <textarea id="dz-notes" name="Notes" rows="4" placeholder="The venue you have in mind, a theme, who it's for…"></textarea>
+          </div>
+          <label class="dz__consent full"><input type="checkbox" required name="Consent" value="Yes"> I agree to Allure &amp; Co contacting me about my event, as described in the <a href="/privacy.html">privacy policy</a>.</label>
+          <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="full"><button class="btn" type="submit">Send my design</button></div>
+          <p class="form-status" role="status"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script id="dz-data" type="application/json">{{ designer | dump | replace("<", "\\u003c") | safe }}</script>
+<script src="/js/designer.js" defer></script>
