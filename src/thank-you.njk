@@ -18,7 +18,7 @@ noindex: true
       <a class="btn" href="{{ site.calendlyUrl }}" target="_blank" rel="noopener">Book my free call</a>
     </div>
     {% endif %}
-    <p id="ty-guide" hidden><a class="btn" href="{{ site.guidePdf }}" download>Download the services guide</a></p>
+    <p id="ty-guide" hidden><a class="btn" href="{{ site.guidePdf or '/downloads/allure-services-guide.pdf' }}" download>Download the services guide</a></p>
     <div class="btn-row" style="margin-top:2rem;justify-content:center">
       <a class="btn btn--ghost" href="/">Back to home</a>
       <a class="btn btn--ghost" href="{{ site.instagramUrl }}" target="_blank" rel="noopener">Follow on Instagram</a>
