@@ -5,14 +5,13 @@
   "email": "allurecoevents@gmail.com",
   "whatsappMessage": "Hi Allure & Co! I'd love to chat about an event I'm planning.",
   "calendlyUrl": "https://calendly.com/allurecoevents/30min",
-  "hitchedUrl": "https://www.hitched.co.uk/empresa.php?id_empresa=419779",
   "instagramUrl": "https://www.instagram.com/allurecoevents",
   "instagramHandle": "@allurecoevents",
   "tiktokUrl": "https://www.tiktok.com/@allurecoevents",
   "tiktokHandle": "@allurecoevents",
+  "hitchedUrl": "https://www.hitched.co.uk/empresa.php?id_empresa=419779",
+  "analyticsToken": "7cc5c056bd0246ff9a378ae7e216da2a",
   "formspreeId": "mnjkjvog",
   "checklistPdf": "/downloads/wedding-checklist.pdf",
-  "guidePdf": "/downloads/allure-services-guide.pdf",
-  "analyticsToken": "",
   "url": "https://allurecoevents.netlify.app"
 }
